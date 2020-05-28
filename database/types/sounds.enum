@@ -21,6 +21,9 @@ false	% reversed
 141 = Step1
 142 = Step2
 
+147 = TornadoJump
+148 = SoftLand
+
 14B = Land
 14E = HitBlock
 
@@ -66,6 +69,13 @@ false	% reversed
 
 2FF = CloseShell
 3D4 = OpenShell
+
+200E = BowVanish
+200F = BowAppear
+
+2016 = Cannon1
+2017 = Cannon2
+2018 = Cannon3
 
 2081 = Jump
 2076 = BombBlast

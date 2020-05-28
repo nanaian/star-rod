@@ -289,7 +289,7 @@
 00360005 = Lightning:YellowMagic3
 
 % Bowser's fire breath. When the tiny variation is used, a function is called to scale up the particle size.
-% additional args: start X/Y/Z, end X/Y/Z, num extra particles (N-1), ???, lifetime
+% additional args: start X/Y/Z, end X/Y/Z, num extra particles (N-1), delay between particle spawns, lifetime
 00370000 = FireBreath:Large
 00370001 = FireBreath:Small
 00370002 = FireBreath:Tiny
@@ -573,7 +573,7 @@
 % 76 = crashes
 
 % A rocket flies up in a parabolic arc. Motion blur is enabled for the skybox.
-% additional args: horizontal position (0 = center), height, ???, horizontal speed, vertical speed, ???, ???
+% additional args: horizontal position (0 = center), height, ???, horizontal speed, vertical speed, ???, explosion spread
 00770000 = Firework:Rocket1
 00770001 = Firework:Rocket2
 

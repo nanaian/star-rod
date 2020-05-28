@@ -7,4 +7,5 @@ add		80248504	Script
 add		8024525C	IntTable
 newline	8024525C	2
 name	8024525C	QuizRequirements
+add		8024521C	ByteTable
 name	8024521C	QuizAnswers

@@ -3,4 +3,5 @@
 add		80247808	IntTable
 newline	80247808	2
 name	80247808	QuizRequirements
+add		802477C8	ByteTable
 name	802477C8	QuizAnswers

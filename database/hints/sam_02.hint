@@ -6,4 +6,5 @@ size	80243478	8
 add		80246C04	IntTable
 newline	80246C04	2
 name	80246C04	QuizRequirements
+add		80246BC4	ByteTable
 name	80246BC4	QuizAnswers

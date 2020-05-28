@@ -12,4 +12,5 @@ add		802456A0	ShakeTreeEvent
 add		802480C0	IntTable
 newline	802480C0	2
 name	802480C0	QuizRequirements
+add		80248080	ByteTable
 name	80248080	QuizAnswers

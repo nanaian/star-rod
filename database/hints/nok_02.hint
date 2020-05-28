@@ -7,4 +7,5 @@ newline	80252784	7
 add		8024716C	IntTable
 newline	8024716C	2
 name	8024716C	QuizRequirements
+add		8024712C	ByteTable
 name	8024712C	QuizAnswers

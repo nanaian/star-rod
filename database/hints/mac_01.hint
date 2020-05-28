@@ -12,4 +12,5 @@ name	80247F88	RowfBadgeInventory
 add		80248CD4	IntTable
 newline	80248CD4	2
 name	80248CD4	QuizRequirements
+add		80248C94	ByteTable
 name	80248C94	QuizAnswers
