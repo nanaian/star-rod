@@ -7,11 +7,13 @@
 asm : 8023E000, 16C8E0 : get_dpad_input_radial	: void : float* angle, float* magnitude
 asm : 8023E130, 16CA10 : initialize_battle		: void : void 
 
+% a closer look at these battle state functions is warranted
 asm : 8023E438, 16CD18 : update_battle_state "main battle logic update function. delegates to update functions for each battle state." : void : void
 asm : 8023EA7C, 16D35C : draw_main_battle_ui	: void : void
-asm : 80242024, 170904 : update_heroes_end_turn "executed at the end of the player team's turn" : void : void
+asm : 8023ffa0 : draw_enemy_health_bars : void : void
+asm : 80242024, 170904 : update_heroes_start_turn "executed at the start of the player team's turn" : void : void
 asm : 80242AC8, 1713A8 : switch_to_player : void : void
-%asm : 80242BB0 : update_partner_change_turn? : void : void
+asm : 80242BB0, 171490 : update_end_player_turn : void : void
 asm : 80242F00, 1717E0 : switch_to_partner : void : void
 asm : 80243918, 1721F8 : switch_order "executed the frame after switch_to_player or switch_to_partner" : void : void
 asm : 80244F00, 1737E0 : update_run_away : void : void
@@ -502,6 +504,8 @@ api : 80280880, 1AF160 : {warning=internal} ActorAddMovePos : void : actor*, flo
 % start of file -->
 api : 80280950, 1AF230 : LoadStarPowerScript : Var[0] int starPowerScript, Var[1] int success "always 1" : void
 % <-- end of file
+
+asm : 802a1c54 : draw_battle_wheel : void : void
 
 asm : 802A5818, 41A5A8 : can_switch_to_player : bool : void
 asm : 802A5988, 41A718 : update_player_menu : void : void

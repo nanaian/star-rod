@@ -2,90 +2,111 @@
 <!-- Pretty self-explanatory. Offsets in hex, image sizes in decimal. -->
 <!-- Use flip="true" to vertically flip images. Some reqire this. -->
 <MiscImages>
-	<Image offset="1443F0" palette="15D3F0" fmt="CI-8" w="320" h="320" out="world_map"/>
-	<Image offset="15D5F0" palette="15F170" fmt="CI-4" w="128" h="110" out="spirits_bg"/>
+
+
 	<Image offset="1164B8" palette="11A240" fmt="CI-8" w="150" h="105" out="peach_letter"/>
 
-	<Image offset="390810" fmt="IA-4" w="64" h="125" flip="true" out="text_action_rating"/>	
+	<Image offset="390810" fmt="IA-4" w="64" h="125" flip="true" out="text_action_rating"/>
 	<Image offset="3ED4E0" fmt="IA-8" w="128" h="38" out="text_chapter"/>
-	
+
 	<Image offset="7A8C39" fmt="IA-8" w="128" h="20" flip="true" out="text_star_point"/>
 	<Image offset="7A9C78" fmt="IA-8" w="128" h="27" flip="true" out="text_star_points"/>
-	
+
 	<!--	<Image offset="1FDB30" palette="1FDFB0" fmt="CI-8" w="48" h="24" out="1FDB30"/>	-->
-	<Image offset="1FDB30" fmt="IA-8" w="48" h="24" out="1FDB30"/>	
-	
+	<Image offset="1FDB30" fmt="IA-8" w="48" h="24" out="1FDB30"/>
+
 	<Image offset="1FE1B0" fmt="RGBA-16" w="128" h="112" out="logo-N64"/>
 	<Image offset="2051B0" fmt="RGBA-16" w="256" h="112" out="logo-IS"/>
 	<Image offset="2131B0" fmt="RGBA-16" w="256" h="48" out="logo-nintendo"/>
-	
+
 	<Image offset="2435F0" fmt="IA-8" w="128" h="128" out="intro_tape"/>
 	<Image offset="2475F0" palette="24B5F0" fmt="CI-8" w="128" h="128" out="intro_silhouette"/>
-	
+
+	<!-- start pause data (135EE0-163400) -->
+	<Image offset="1439F0" fmt="IA-8" w="16" h="32" out="ui/pause/1439F0"/>
+	<Image offset="143BF0" fmt="IA-8" w="16" h="64" out="ui/pause/143BF0"/>
+	<Image offset="143FF0" fmt="IA-8" w="16" h="64" out="ui/pause/143FF0"/>
+	<Image offset="1443F0" palette="15D3F0" fmt="CI-8" w="320" h="320" out="ui/pause/world_map"/>
+	<Image offset="15D5F0" palette="15F170" fmt="CI-4" w="128" h="110" out="ui/pause/spirits_bg"/>
+	<Image offset="15F370" fmt="RGBA-16" w="8" h="8" out="ui/pause/15F370"/>
+	<Image offset="15F570" fmt="IA-8" w="16" h="16" out="ui/pause/15F570"/>
+	<Image offset="15F670" fmt="IA-8" w="16" h="16" out="ui/pause/15F670"/>
+	<Image offset="15F770" fmt="IA-4" w="16" h="64" out="ui/pause/15F770"/>
+	<Image offset="15F970" palette="15FB70" fmt="CI-4" w="64" h="16" out="ui/pause/15F970"/>
+	<Image offset="15FD70" palette="15FF70" fmt="CI-4" w="64" h="16" out="ui/pause/15FD70"/>
+	<Image offset="160170" palette="160370" fmt="CI-4" w="64" h="16" out="ui/pause/160370"/>
+	<Image offset="160570" palette="1606F0" fmt="CI-4" w="48" h="16" out="ui/pause/160570"/>
+	<Image offset="1608F0" palette="160A70" fmt="CI-4" w="48" h="16" out="ui/pause/1608F0"/>
+	<Image offset="160C70" palette="160DF0" fmt="CI-4" w="48" h="16" out="ui/pause/160C70"/>
+	<Image offset="160FF0" palette="1611F0" fmt="CI-4" w="64" h="16" out="ui/pause/160FF0"/>
+	<Image offset="1613F0" palette="1617F0" fmt="CI-4" w="128" h="16" out="ui/pause/1613F0"/>
+	<Image offset="1619F0" palette="161C70" fmt="CI-4" w="160" h="8" out="ui/pause/1619F0"/>
+	<!-- end pause data (135EE0-163400) -->
+
 	<Image offset="10A9F0" fmt="I-4" w="16" h="16" out="10A9F0"/>
 	<Image offset="10AA70" fmt="I-4" w="16" h="16" out="10AA70"/>
 	<!-- followed by a few verticies at 10AAF0 -->
 	<Image offset="10AB70" fmt="I-4" w="32" h="32" out="10AB70"/>
 	<Image offset="10AD70" fmt="I-4" w="32" h="32" out="10AD70"/>
-	
-	<Image offset="10CEB0" palette="10DC30" fmt="CI-4" w="32" h="64" out="ui/message/10CEB0"/>	
-	<Image offset="10D2B0" palette="10DC30" fmt="CI-4" w="8"  h="64" out="ui/message/10D2B0"/>	
-	<Image offset="10D3B0" palette="10DC30" fmt="CI-4" w="32" h="64" out="ui/message/10D3B0"/>	
-	
-	<Image offset="10D7B0" palette="10DC30" fmt="CI-4" w="16" h="16" out="ui/message/10D7B0"/>	
-	<Image offset="10D830" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D830"/>	
-	<Image offset="10D850" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D850"/>	
-	<Image offset="10D870" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D870"/>	
-	<Image offset="10D890" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D890"/>	
-	<Image offset="10D8B0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D8B0"/>	
-	<Image offset="10D8D0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D8D0"/>	
-	<Image offset="10D8F0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D8F0"/>	
-	<Image offset="10D910" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D910"/>	
-	<Image offset="10D930" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D930"/>	
-	<Image offset="10D950" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D950"/>	
-	<Image offset="10D970" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D970"/>	
-	<Image offset="10D990" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D990"/>	
-	<Image offset="10D9B0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D9B0"/>	
-	<Image offset="10D9D0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D9D0"/>	
-	<Image offset="10D9F0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D9F0"/>	
+
+	<Image offset="10CEB0" palette="10DC30" fmt="CI-4" w="32" h="64" out="ui/message/10CEB0"/>
+	<Image offset="10D2B0" palette="10DC30" fmt="CI-4" w="8"  h="64" out="ui/message/10D2B0"/>
+	<Image offset="10D3B0" palette="10DC30" fmt="CI-4" w="32" h="64" out="ui/message/10D3B0"/>
+
+	<Image offset="10D7B0" palette="10DC30" fmt="CI-4" w="16" h="16" out="ui/message/10D7B0"/>
+	<Image offset="10D830" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D830"/>
+	<Image offset="10D850" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D850"/>
+	<Image offset="10D870" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D870"/>
+	<Image offset="10D890" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D890"/>
+	<Image offset="10D8B0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D8B0"/>
+	<Image offset="10D8D0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D8D0"/>
+	<Image offset="10D8F0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D8F0"/>
+	<Image offset="10D910" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D910"/>
+	<Image offset="10D930" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D930"/>
+	<Image offset="10D950" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D950"/>
+	<Image offset="10D970" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D970"/>
+	<Image offset="10D990" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D990"/>
+	<Image offset="10D9B0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D9B0"/>
+	<Image offset="10D9D0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D9D0"/>
+	<Image offset="10D9F0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10D9F0"/>
 	<Image offset="10DA10" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA10"/>
-	<Image offset="10DA30" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA30"/>	
-	<Image offset="10DA50" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA50"/>	
-	<Image offset="10DA70" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA70"/>	
-	<Image offset="10DA90" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA90"/>	
-	<Image offset="10DAB0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DAB0"/>	
-	<Image offset="10DAD0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DAD0"/>	
-	<Image offset="10DAF0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DAF0"/>	
+	<Image offset="10DA30" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA30"/>
+	<Image offset="10DA50" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA50"/>
+	<Image offset="10DA70" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA70"/>
+	<Image offset="10DA90" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DA90"/>
+	<Image offset="10DAB0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DAB0"/>
+	<Image offset="10DAD0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DAD0"/>
+	<Image offset="10DAF0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DAF0"/>
 	<Image offset="10DB10" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB10"/>
-	<Image offset="10DB30" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB30"/>	
-	<Image offset="10DB50" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB50"/>	
-	<Image offset="10DB70" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB70"/>	
-	<Image offset="10DB90" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB90"/>	
-	<Image offset="10DBB0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DBB0"/>	
-	<Image offset="10DBD0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DBD0"/>	
-	<Image offset="10DBF0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DBF0"/>	
+	<Image offset="10DB30" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB30"/>
+	<Image offset="10DB50" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB50"/>
+	<Image offset="10DB70" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB70"/>
+	<Image offset="10DB90" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DB90"/>
+	<Image offset="10DBB0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DBB0"/>
+	<Image offset="10DBD0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DBD0"/>
+	<Image offset="10DBF0" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DBF0"/>
 	<Image offset="10DC10" palette="10DC30" fmt="CI-4" w="8"  h="8"  out="ui/message/10DC10"/>
 	<!-- every 0x20 bytes until 10DC30 -->
-	
+
 	<!-- sign message box images; alternative palette for metallic sign is located at 10E570 -->
-	<Image offset="10DE30" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DE30"/>	
-	<Image offset="10DEB0" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DEB0"/>	
-	<Image offset="10DF30" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DF30"/>	
-	<Image offset="10DFB0" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DFB0"/>	
-	<Image offset="10E030" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10E030"/>	
-	<Image offset="10E0B0" palette="10E550" fmt="CI-4" w="16" h="32" out="ui/message/10E0B0"/>	
-	<Image offset="10E130" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10E130"/>	
-	<Image offset="10E1B0" palette="10E550" fmt="CI-4" w="16" h="40" out="ui/message/10E1B0"/>	
-	<Image offset="10E2F0" palette="10E550" fmt="CI-4" w="16" h="40" out="ui/message/10E2F0"/>	
-	<Image offset="10E430" palette="10E550" fmt="CI-4" w="16" h="32" out="ui/message/10E430"/>	
-	<Image offset="10E530" palette="10E550" fmt="CI-4" w="8"  h="8"  out="ui/message/10E530"/>	
-	
+	<Image offset="10DE30" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DE30"/>
+	<Image offset="10DEB0" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DEB0"/>
+	<Image offset="10DF30" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DF30"/>
+	<Image offset="10DFB0" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10DFB0"/>
+	<Image offset="10E030" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10E030"/>
+	<Image offset="10E0B0" palette="10E550" fmt="CI-4" w="16" h="32" out="ui/message/10E0B0"/>
+	<Image offset="10E130" palette="10E550" fmt="CI-4" w="16" h="16" out="ui/message/10E130"/>
+	<Image offset="10E1B0" palette="10E550" fmt="CI-4" w="16" h="40" out="ui/message/10E1B0"/>
+	<Image offset="10E2F0" palette="10E550" fmt="CI-4" w="16" h="40" out="ui/message/10E2F0"/>
+	<Image offset="10E430" palette="10E550" fmt="CI-4" w="16" h="32" out="ui/message/10E430"/>
+	<Image offset="10E530" palette="10E550" fmt="CI-4" w="8"  h="8"  out="ui/message/10E530"/>
+
 	<!-- 0x40 palettes here -->
-	<Image offset="10E590" palette="24B5F0" fmt="I-4"  w="64" h="64" out="ui/message/10E590"/>	
-	<Image offset="10ED90" palette="10EEB0" fmt="CI-4" w="24" h="24" out="ui/message/10ED90"/>	
-	<Image offset="10EED0" palette="10EEB0" fmt="RGBA-16" w="16" h="18" out="ui/message/10EED0"/>	
-	<Image offset="10F110" palette="24B5F0" fmt="I-4"  w="16" h="18" out="ui/message/10F110"/>	
-	
+	<Image offset="10E590" palette="24B5F0" fmt="I-4"  w="64" h="64" out="ui/message/10E590"/>
+	<Image offset="10ED90" palette="10EEB0" fmt="CI-4" w="24" h="24" out="ui/message/10ED90"/>
+	<Image offset="10EED0" palette="10EEB0" fmt="RGBA-16" w="16" h="18" out="ui/message/10EED0"/>
+	<Image offset="10F110" palette="24B5F0" fmt="I-4"  w="16" h="18" out="ui/message/10F110"/>
+
 	<!-- images used for UI elements -->
 	<Image offset="0919B0" palette="091D70" fmt="CI-4" w="48" h="40" out="ui/919B0_91D70"/>
 	<Image offset="091D90" palette="092150" fmt="CI-4" w="48" h="40" out="ui/91D90_92150"/>
@@ -300,7 +321,7 @@
 	<Image offset="09D410" palette="09D630" fmt="CI-4" w="32" h="32" out="ui/move_parter_3_disabled"/>
 	<Image offset="09D658" fmt="RGBA-32" w="16" h="16" out="ui/stat_heart"/>
 	<Image offset="09DA60" fmt="RGBA-32" w="16" h="16" out="ui/stat_flower"/>
-	
+
 	<!-- boxes in menus and such -->
 	<Image offset="0A2960" fmt="IA-8" w="32" h="16" out="ui/box/A2960"/>
 	<Image offset="0A2E90" fmt="IA-8" w="16" h="16" out="ui/box/A2E90"/>

@@ -641,6 +641,8 @@ asm : 800DEA08, 077EB8 : trace_above_player "starts from given position and trac
 
 asm : 800DF460, 078910 : test_player_lateral : int hitObjectID "collider ID or entityID | 4000" : player_status* player, {out} float* posX, {out} float* posY, {out} float* posZ, float distance "in addition to radius" , float yaw "in world coords"
 
+asm : 800DF740, 078BF0 : update_player : void : void
+
 asm : 800DFA00, 078EB0 : check_input_use_partner	: void : void
 
 asm : 800DFC50, 079100 : clear_player_status : void : void
@@ -659,6 +661,8 @@ asm : 800E1704, 07ABB4 : make_spinning_player_display_list	: void : void % only 
 
 asm : 800E1BC4, 07B074 : update_player_shadow "update shadow and floorBelow collider" : void : void
 
+asm : 800E1F90, 07B440 : update_player_input : void : void
+
 asm : 800E27E0, 07BC90 : collision_main_above : int hitID : void
 asm : 800DE7E4, 077C94 : collision_check_above : int hitID : player_status* player, float* posX, float* posY, float* posZ, float* depth, float yaw
 asm : 800E363C, 07CAEC : collision_main_lateral : void : void
@@ -676,7 +680,7 @@ asm : 800E3448, 07C8F8 : integrate_gravity : float velocity : void
 
 asm : 800E4FCC, 07E47C : check_input_midair_jump	: void : void
 asm : 800E5088, 07E538 : get_current_partner_id : #partnerID : void
-asm : 800E54E0 : save_ground_pos : void : void
+asm : 800E54E0, 07E990 : save_ground_pos : void : void
 asm : 800E5DA4, 07F254 : set_action_state			: void : #actionStateID
 asm : 800E5F68, 07F418 : update_locomotion_state	: void : void % update run/walk state based on speed and slowgo
 asm : 800E5FD0, 07F480 : start_falling				: void : void
@@ -685,6 +689,13 @@ asm : 800E608C, 07F53C : start_bounce_b				: void : void % bouncing off kooper, 
 asm : 800E60E0, 07F590 : check_input_hammer			: bool : void
 asm : 800E6160, 07F610 : check_input_jump			: bool : void
 asm : 800E6268, 07F718 : check_input_spin			: void : void
+
+asm : 800E69DC, 07FE8C : can_pause : bool : #buttons current, #buttons pressed
+
+asm : 800E6B78, 080028 : setup_partner_popup : int count : popup_data*
+asm : 800E6C44, 0800F4 : setup_item_popup : int count : popup_data*
+
+asm : 800E6CE4, 080194 : check_input_open_menus : void : void
 
 asm : 800E728C, 08073C : check_input_status_menu	: void : void
 % <-- end of file
@@ -713,6 +724,7 @@ asm : 800E9698, 082B48 : hide_coin_counter			: void : void
 
 api : 800E96F8, 082BA8 : ShowCoinCounter "shows coin counter in lower left hand corner" : void : bool "1 = show | 0 = hide"
 
+asm : 800E973c : draw_status_ui "draw status menu and coin counter" : void : void
 asm : 800E9760, 082C10 : open_status_menu_long "opens for 210 frames" : void : void
 asm : 800E978C, 082C3C : open_status_menu_short "opens for 105 frames" : void : void
 
@@ -892,9 +904,10 @@ asm : 801436B4, 0D9DB4 : render_menu_icons			: void : void
 
 
 
-asm : 80144298, 0DA998 : {warning:internal} draw_menu_icon					: void : int iconIndex, bool makeDisplayList
-asm : 801447A8, 0DAEA8 : draw_icon_0				: void : int iconIndex % call _draw_icon with makeDisplayList = false
-asm : 801447C4, 0DAEC4 : draw_icon_1				: void : int iconIndex % call _draw_icon with makeDisplayList = true
+asm : 80144298, 0DA998 : {warning:internal} draw_menu_icon					: void : int iconIndex, int mode
+asm : 801447A8, 0DAEA8 : draw_icon_0				: void : int iconIndex % call _draw_icon with mode 0
+asm : 801447C4, 0DAEC4 : draw_icon_1				: void : int iconIndex % call _draw_icon with mode 1
+asm : 801447E0, 0DAEC4 : draw_icon_2				: void : int iconIndex % call _draw_icon with mode 2
 
 asm : 80147368, 0DDA68 : play_ambient_sounds		: int scriptStatus : int soundID, int "flags?"
 % <-- end of file
@@ -1221,7 +1234,7 @@ api : 802CE088, 0F2A38 : SetNpcJumpscale  	: void : #npcID, float jumpScale
 api : 802CE0F4, 0F2AA4 : SetNpcAnimation 	: void : #npcID, int animation
 api : 802CE160, 0F2B10 : GetNpcAnimation	: void : #npcID, {out} var animation
 % api : 802CE160 sets npc[30]
-api : 802CE22C, 0F2BDC : NpcMoveTo			: void : #npcID, int goalX, int goalZ, int speed "0 = use NpcSpeed"
+api : 802CE22C, 0F2BDC : NpcMoveTo			: void : #npcID, int goalX, int goalZ, int time "frames; 0 = use NpcSpeed"
 asm : 802CE434, 0F2DE4 : _npc_jump_to		: int scriptStatus : script_context*, int initialCall, int snapYaw
 api : 802CE6C4, 0F3074 : NpcJump0 "snaps yaw to move direction" : void : #npcID, int goalX, int goalY, int goalZ, int duration
 api : 802CE6E0, 0F3090 : NpcJump1 "does not change yaw" : void : #npcID, int goalX, int goalY, int goalZ, int duration
@@ -1297,7 +1310,7 @@ api : 802D1054, 0F5A04 : SetPlayerJumpscale		: void : float jumpScale
 api : 802D1084, 0F5A34 : SetPlayerAnimation  	: void : #playerAnim
 api : 802D10D8, 0F5A88 : SetPlayerActionState	: void : #actionStateID
 % api : 802D1104 : set npc[30] for player
-api : 802D1134, 0F5AE4 : MovePlayerTo			: void : int goalX, int goalZ, int time "frames -- use 0 to compute via move speed + distance"
+api : 802D1134, 0F5AE4 : PlayerMoveTo			: void : int goalX, int goalZ, int time "frames -- use 0 to compute via move speed + distance"
 asm : 802D14E0, 0F5E90 : player_jump			: bool : script_context* script, int initialCall, int mode
 api : 802D18E8, 0F6298 : PlayerJump				: void : int goalX, int goalY, int goalZ, int arcHeight
 api : 802D1904, 0F62B4 : PlayerJump1			: void : int goalX, int goalY, int goalZ, int arcHeight
@@ -1311,7 +1324,7 @@ api : 802D1DFC, 0F67AC : GetPlayerPos			: void : {out} var posX, {out} var posY,
 api : 802D1E94, 0F6844 : GetPlayerAnimation		: void : {out} var animation {outType=#playerAnim}
 api : 802D1EC0, 0F6870 : FullyRestoreHPandFP	: void : void
 api : 802D1EE0, 0F6890 : FullyRestoreSP			: void : void
-api : 802D1EFC, 0F68AC : EnablePartner			: void : #partnerID
+api : 802D1EFC, 0F68AC : EnablePartner			: void : int partner "note: partnerID - 1"
 api : 802D1F38, 0F68E8 : DisablePartner			: void : #partnerID
 api : 802D1F70, 0F6920 : UseEntryHeading : Var[1] float goalPosX, Var[2] float goalPosY, Var[3] float goalPosZ, Var[5] float offsetStep "tangent from room entry offset" : int moveDist, int time "num frames"
 %asm : 802D2148
@@ -1320,7 +1333,7 @@ api : 802D216C, 0F6B1C : UseExitHeading : Var[1] float goalPosX, Var[2] float go
 api : 802D2AA8, 0F7458 : DisablePulseStone "controls flag that make pulse stone appear on sbk maps" : void : bool disabled
 api : 802D2B0C, 0F74BC : GetCurrentPartner : void : {out} var value
 % two functions controlling flags 4 and 8
-api : 802D2B88, 0F7538 : Disable8bitMario : void : bool disabled "0 = pixel mario | 1 = paper maio"
+api : 802D2B88, 0F7538 : Disable8bitMario : void : bool disabled "0 = pixel mario | 1 = paper mario"
 api : 802D2CD8, 0F7688 : PlaySoundAtPlayer : void : #soundID, int "always zero?"
 
 
