@@ -649,8 +649,10 @@ asm : 800DFC50, 079100 : clear_player_status : void : void
 
 asm : 800E00B0, 079560 : enable_player_shadow		: void : void
 asm : 800E00E4, 079594 : disable_player_shadow		: void : void
-asm : 800E0114, 0795C4 : enable_player_physics 		: int disableCount : void
-asm : 800E0140, 0795F0 : disable_player_physics 	: int disableCount : void
+
+asm : 800E0114, 0795C4 : disable_player_static_collisions "disable lateral collisions with the world while the player is standing still" : int disableCount : void
+asm : 800E0140, 0795F0 : enable_player_static_collisions "enable lateral collisions with the world while the player is standing still": int disableCount : void
+
 asm : 800E0178, 079628 : disable_player_input		: int disableCount : void
 asm : 800E01A4, 079654 : enable_player_input		: int disableCount : void
 
@@ -677,7 +679,7 @@ asm : 800E2D18, 07C1C8 : update_fall_state : void : void
 asm : 800E2FD0, 07C480 : gravity_use_jump_parms : void : A1 player_status* player
 asm : 800E306C, 07C51C : gravity_use_fall_parms : void : void
 asm : 800E3448, 07C8F8 : integrate_gravity : float velocity : void
-
+asm : 800E3278, 07C728 : phys_player_land : void : void
 asm : 800E4FCC, 07E47C : check_input_midair_jump	: void : void
 asm : 800E5088, 07E538 : get_current_partner_id : #partnerID : void
 asm : 800E54E0, 07E990 : save_ground_pos : void : void
@@ -724,7 +726,7 @@ asm : 800E9698, 082B48 : hide_coin_counter			: void : void
 
 api : 800E96F8, 082BA8 : ShowCoinCounter "shows coin counter in lower left hand corner" : void : bool "1 = show | 0 = hide"
 
-asm : 800E973c : draw_status_ui "draw status menu and coin counter" : void : void
+asm : 800E973C, 082BEC : draw_status_ui "draw status menu and coin counter" : void : void
 asm : 800E9760, 082C10 : open_status_menu_long "opens for 210 frames" : void : void
 asm : 800E978C, 082C3C : open_status_menu_short "opens for 105 frames" : void : void
 
@@ -801,10 +803,12 @@ asm : 8011064C, 0A6D4C : get_shadow_list			: shadow** : void
 asm : 80110AAC, 0A71AC : test_player_entity_aabb	: bool intersects : entity* entity
 asm : 80110BB0, 0A72B0 : is_player_action_state		: bool : #actionStateID
 
-asm : 80110C14, 0A7314 : load_entity_data			: void : void
-asm : 801118C4, 0A7FC4 : create_entity				: entity* : static_entity_data* data, int x, int y, int z, int flags
+asm : 8011022C, 0A692C : update_entity_transform_matrix		: void : entity*
+asm : 801108B8, 0A6FB8 : entity_get_collision_flags "checks entity against objects the player is touching, hammering, etc." : int flags : entity*
+asm : 80110C14, 0A7314 : load_area_specific_entity_data		: void : void
+asm : 801118C4, 0A7FC4 : create_entity				: int entityIndex : static_entity_data* data, int x, int y, int z, int flags
 asm : 80111BD8, 0A82D8 : create_shadow_from_data	: int shadowIndex : static_shadow_data* data, float x, float y, float z
-api : 80111D38, 0A8438 : MakeEntity       			: void : varargs % static_entity_data*, x, y, z, angle, ...
+api : 80111D38, 0A8438 : MakeEntity       			: Var[0] int entityIndex : varargs % static_entity_data*, x, y, z, angle, ...
 api : 80111FB0, 0A86B0 : AssignScript				: void : $Script
 api : 80111FF8, 0A86F8 : AssignAreaFlag				: void : int index
 api : 801120B8, 0A87B8 : AssignFlag					: void : int flagVar
@@ -833,8 +837,14 @@ asm : 8011ADC8, 0B14C8 : load_model_transforms		: void : model_node* mdl, model_
 asm : 8011B010, 0B1710 : get_model_list_index_from_tree_index	: int listIndex : int treeIndex
 asm : 8011B0EC, 0B17EC : get_model_center_and_size  : void : modelID, float* outCenterX, float* outCenterY, float* outCenterZ, float* outSizeX,float* outSizeY, float* outSizeZ
 asm : 8011B6F0, 0B1DF0 : clone_model "fully copies srcModel, changing only modelID" : void : int srcModelID, int newModelID
-asm : 8011BB88, 0B2288 : set_fog_color "each channel 0-255" : void : int R, int G, int B, int A
-asm : 8011BBD8, 0B22D8 : get_fog_color "each channel 0-255" : void : int* R, int* B, int* G, int* A
+
+asm : 8011BB50, 0B2250 : enable_world_fog : void : void
+asm : 8011BB64, 0B2264 : disable_world_fog : void : void
+asm : 8011BB74, 0B2274 : set_world_fog_dist : void : int start, int end
+asm : 8011BB88, 0B2288 : set_world_fog_color "each channel 0-255" : void : int R, int G, int B, int A
+asm : 8011BBA4, 0B22A4 : is_world_fog_enabled : bool : void
+asm : 8011BBB4, 0B22B4 : get_world_fog_distance : void : int* out_start, int* out_end
+asm : 8011BBD8, 0B22D8 : get_world_fog_color "each channel 0-255" : void : int* R, int* B, int* G, int* A
 asm : 8011BC14, 0B2314 : set_tex_panner		: void : model* model, int pannerID
 asm : 8011BC1C, 0B231C : set_main_pan_u		: void : int pannerID, int amount
 asm : 8011BC34, 0B2334 : set_main_pan_v		: void : int pannerID, int amount
@@ -843,6 +853,14 @@ asm : 8011BC64, 0B2364 : set_aux_pan_v		: void : int pannerID, int amount
 asm : 8011D910, 0B4010 : queue_render_task			: render_task_entry* : render_task* task
 
 asm : 80120148, 0B6848 : play_model_animation	: ??? : ???
+
+asm : 80122FEC, 0B96EC : enable_entity_fog : void : void
+asm : 80123000, 0B9700 : disable_entity_fog : void : void
+asm : 80123010, 0B9710 : set_entity_fog_dist : void : int min, int max
+asm : 80123028, 0B9728 : set_entity_fog_color "each channel 0-255" : void : int R, int G, int B, int A
+asm : 80123050, 0B9750 : is_entity_fog_enabled : bool : void
+asm : 80123060, 0B9760 : get_entity_fog_distance : void : int* out_start, int* out_end
+asm : 8012307C, 0B977C : get_entity_fog_color "each channel 0-255" : void : int* R, int* B, int* G, int* A
 
 % start of file -->
 asm : 80123660, 0B9D60 : clear_character_set : void : void
@@ -876,13 +894,14 @@ asm : 80130B0C, 0C720C : draw_coin_sparkles : void : item_entity* item
 asm : 80130F58, 0C7658 : get_item_entity : item_entity* : int itemEntityIndex
 asm : 80130FF0, 0C76F0 : clear_item_entity_data		: void : void
 asm : 801310CC, 0C77CC : init_item_entity_list	: void : void
-asm : 801313F4, 0C7AF4 : make_item_entity		: int itemEntityIndex : int itemID, float x, float y, float z, int type, int pickupDelay "frames before available for pickup", int "facing angle sign? usually -1", var pickupVar
-asm : 80131A94, 0C8194 : make_item_entity_nodelay	: int itemEntityIndex : int itemID, float x, float y, float z, int type, var pickupVar
-asm : 80131AC8, 0C81C8 : make_item_entity_delayed	: int itemEntityIndex : int itemID, float x, float y, float z, int type, int pickupDelay "frames before available for pickup", var pickupVar
+asm : 801313F4, 0C7AF4 : make_item_entity		: int itemEntityIndex : int itemID, float x, float y, float z, #itemSpawnMode, int pickupDelay "frames before available for pickup", int "facing angle sign? usually -1", var pickupVar
+asm : 80131A94, 0C8194 : make_item_entity_nodelay	: int itemEntityIndex : int itemID, float x, float y, float z, #itemSpawnMode, var pickupVar
+asm : 80131AC8, 0C81C8 : make_item_entity_delayed	: int itemEntityIndex : int itemID, float x, float y, float z, #itemSpawnMode, int pickupDelay "frames before available for pickup", var pickupVar
 asm : 80131B00, 0C8200 : init_got_item				: int itemEntityIndex : int iconID, int, int messageFlags "0 = item, 10 = \"1 coin\", 20 = \"3 star pieces\", ..."
 asm : 80131EEC, 0C85EC : update_item_entities : void : void
 asm : 801321A4, 0C88A4 : draw_item_entity : void : item_entity* item
 asm : 80132C80, 0C9380 : draw_item_entities				: void : void
+asm : 80132E54, 0C9554 : render_item_entities : void : void
 asm : 801230B0, 0B97B0 : stub_item_entity_nodraw : void : void
 asm : 80133930, 0CA030 : remove_item_entity_by_reference	: void : item_entity* item
 asm : 801339FC, 0CA0FC : remove_item_entity_by_index		: void : int itemEntityIndex
@@ -1169,7 +1188,7 @@ api : 802CA614, 0EEFC4 : PlaySoundAtCollider	: void : colliderID, #soundID, ??? 
 % CAMERA FUNCTIONS
 api : 802CA6C0, 0EF070 : SetCamEnabled    : void : #camID, bool enabled
 api : 802CA774, 0EF124 : SetCamFlag80     : void : #camID, bool enabled
-api : 802CA828, 0EF1D8 : SetCamPerspective : void : #camID, int type "almost always = 3, NOT the same camera type from zones", int vfov, int nearClip, int farClip 
+api : 802CA828, 0EF1D8 : SetCamPerspective : void : #camID, int type "almost always = 3, NOT the same camera type from zones", int vfov, int nearClip, int farClip
 % 802CA988	#camID, out, out, out, out
 api : 802CAB18, 0EF4C8 : SetCamViewport   : void : #camID, int startX, int startY, int width, int height
 % 802CABE8  8    
@@ -1261,6 +1280,7 @@ api : 802CF5B8, 0F3F68 : BringPartnerOut	: void : #partnerID % brings out tempor
 api : 802CF988, 0F4338 : PutPartnerAway		: void : void % puts away a temporary partner
 
 api : 802CFC74, 0F4624 : GetCurrentPartnerID : void : {out} var partnerID {outType=#partnerID}
+api : 802CFCE8, 0F4698 : IsCurrentPartnerFlying : void : {out} var isFlying {outType=bool}
 
 api : 802D0118, 0F4AC8 : SetNpcEffect		: void : #npcID, ???, ???
 api : 802D01AC, 0F4B5C : PlaySoundAtNpc		: void : #npcID, #soundID, ???
@@ -1389,6 +1409,7 @@ api : 802D5DF4, 0FA7A4 : FadeInMusic      	: void : int musicPlayer, #songID, in
 %802D5EE0
 %802D5F28
 
+api : 802D60E8, 0FAA98 : ClearAmbientSounds	: void : int fadeTime "typical value is 250"
 api : 802D611C, 0FAACC : PlayAmbientSounds	: void : #ambientSFX
 api : 802D6150, 0FAB00 : PlaySound        	: void : int soundID
 api : 802D61DC, 0FAB8C : PlaySoundAt      	: void : int soundID, ???, int X, int Y, int Z
@@ -1409,12 +1430,12 @@ api : 802D6B18, 0FB4C8 : FindItem         	: void : #itemID, {out} var itemSlot 
 api : 802D6B9C, 0FB54C : RemoveItem       	: void : #itemID, {out} var itemSlot "FFFF if none were removed"
 api : 802D6C4C, 0FB5FC : CountFortessKeys	: void : {out} var num
 api : 802D6C94, 0FB644 : RemoveFortressKeys	: void : int num
-api : 802D6CC0, 0FB670 : MakeItemEntity : Var[0] int itemEntityIndex : #itemID, int spawnX, int spawnY, int spawnZ, int type, var pickupFlag "GameFlag, 0 is valid for none"
+api : 802D6CC0, 0FB670 : MakeItemEntity : Var[0] int itemEntityIndex : #itemID, int spawnX, int spawnY, int spawnZ, #itemSpawnMode, var pickupFlag "GameFlag, 0 is valid for none"
 % This is almost identical to MakeItemEntity, but this is used for items that drop from trees.
 % The only difference between these functions is that MakeItemEntity uses GetVariableIndex on the saved flag value, while DropItem uses GetVariable
-api : 802D6DC0, 0FB770 : DropItemEntity : Var[0] int itemEntityIndex : #itemID, int spawnX, int spawnY, int spawnZ, int type, var pickupFlag "GameFlag, 0 is valid for none"
+api : 802D6DC0, 0FB770 : DropItemEntity : Var[0] int itemEntityIndex : #itemID, int spawnX, int spawnY, int spawnZ, #itemSpawnMode, var pickupFlag "GameFlag, 0 is valid for none"
 % Same as DropItemEntity, except it also sets item flag 0x4000
-api : 802D6EC0, 0FB870 : DropItemEntityB : Var[0] int itemEntityIndex : #itemID, int spawnX, int spawnY, int spawnZ, int type, var pickupFlag "GameFlag, 0 is valid for none"
+api : 802D6EC0, 0FB870 : DropItemEntityB : Var[0] int itemEntityIndex : #itemID, int spawnX, int spawnY, int spawnZ, #itemSpawnMode, var pickupFlag "GameFlag, 0 is valid for none"
 api : 802D6FCC, 0FB97C : RemoveItemEntity : void : int itemEntityIndex
 api : 802D6FF8, 0FB9A8 : AddBadge         : void : #itemID, {out} var addedBadgeSlot
 api : 802D7050, 0FBA00 : RemoveBadge "unequips and removes badge from inventory" : void : #itemID

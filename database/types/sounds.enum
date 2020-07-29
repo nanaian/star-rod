@@ -27,6 +27,8 @@ false	% reversed
 14B = Land
 14E = HitBlock
 
+153 = SearchBush
+
 1C1 = BasicDoorOpen
 1C2 = BasicDoorClose
 1C3 = MetalDoorOpen

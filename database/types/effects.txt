@@ -83,6 +83,7 @@
 % additional args: X/Y/Z, radius
 00110000 = Sparkles:Star
 00110001 = Sparkles:Random
+00110002 = Sparkles:TreeShake
 
 % additional args: start X/Y/Z, end X/Y/Z, duration
 00120000 = ShapeSpell:Projectile

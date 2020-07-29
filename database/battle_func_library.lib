@@ -10,7 +10,7 @@ asm : 8023E130, 16CA10 : initialize_battle		: void : void
 % a closer look at these battle state functions is warranted
 asm : 8023E438, 16CD18 : update_battle_state "main battle logic update function. delegates to update functions for each battle state." : void : void
 asm : 8023EA7C, 16D35C : draw_main_battle_ui	: void : void
-asm : 8023ffa0 : draw_enemy_health_bars : void : void
+asm : 8023FFA0, 16E880 : draw_enemy_health_bars : void : void
 asm : 80242024, 170904 : update_heroes_start_turn "executed at the start of the player team's turn" : void : void
 asm : 80242AC8, 1713A8 : switch_to_player : void : void
 asm : 80242BB0, 171490 : update_end_player_turn : void : void
@@ -505,7 +505,7 @@ api : 80280880, 1AF160 : {warning=internal} ActorAddMovePos : void : actor*, flo
 api : 80280950, 1AF230 : LoadStarPowerScript : Var[0] int starPowerScript, Var[1] int success "always 1" : void
 % <-- end of file
 
-asm : 802a1c54 : draw_battle_wheel : void : void
+asm : 802A1C54, 4169E4 : draw_battle_wheel : void : void
 
 asm : 802A5818, 41A5A8 : can_switch_to_player : bool : void
 asm : 802A5988, 41A718 : update_player_menu : void : void

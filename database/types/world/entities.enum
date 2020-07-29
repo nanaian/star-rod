@@ -2,22 +2,6 @@ Entity	% namespace
 entity	% library name
 true	% reversed
 
-CymbalPlant              = 802BC788
-PinkFlower               = 802BC7AC
-SpinningFlower           = 802BC7F4
-Tweester                 = 802BCA74
-StarBoxLaucher           = 802BCB44
-BellbellPlant            = 802BCBD8
-TrumpetPlant             = 802BCBFC
-SpongyFlower             = 802BCC20
-Padlock                  = 802BCD68
-PadlockRedFrame          = 802BCD8C % light red frame around lock, unused in vanilla
-PadlockRedFace           = 802BCDB0 % dark red front plate, unused in vanilla
-PadlockBlueFace          = 802BCDD4 % dark blue front plate, unused in vanilla
-RedArrowSigns            = 802BCD9C
-BoardedFloor             = 802BCE84 
-BombableRock1            = 802BCF00
-BombableRock2            = 802BCF24
 SavePoint                = 802E9A18
 RedSwitch                = 802E9BB0
 BlueSwitch               = 802E9BD4
@@ -54,3 +38,22 @@ Chest                    = 802EAE30
 BlueWarpPipe             = 802EAF80
 WoodenCrate              = 802EAED4
 Signpost                 = 802EAFDC
+
+Padlock                  = 802BCD68
+PadlockRedFrame          = 802BCD8C % light red frame around lock, unused in vanilla
+PadlockRedFace           = 802BCDB0 % dark red front plate, unused in vanilla
+PadlockBlueFace          = 802BCDD4 % dark blue front plate, unused in vanilla
+BoardedFloor             = 802BCE84 
+BombableRock1            = 802BCF00
+BombableRock2            = 802BCF24
+
+CymbalPlant              = 802BC788
+PinkFlower               = 802BC7AC
+SpinningFlower           = 802BC7F4
+BellbellPlant            = 802BCBD8
+TrumpetPlant             = 802BCBFC
+SpongyFlower             = 802BCC20
+RedArrowSigns            = 802BCD9C
+
+Tweester                 = 802BCA74
+StarBoxLaucher           = 802BCB44
