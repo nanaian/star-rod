@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Star Rod
+Comment=Paper Mario modding suite
+Categories=Development;Java;
+Keywords=Paper Mario;Mod;
+Exec=/opt/star-rod/starrod
+Icon=/opt/star-rod/star-rod.png
+Terminal=false
+StartupWMClass=main-StarRodDev
