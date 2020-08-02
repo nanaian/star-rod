@@ -185,6 +185,9 @@ asm : 8003ED68, 01A168 : get_enemy_safe 		: enemy* : #npcID
 asm : 8003EDF0, 01A1F0 : get_defeated			: bool : int mapID, int encounterID
 asm : 8003EE40, 01A240 : set_defeated			: void : int mapID, int encounterID
 
+api : 8003ef00 : FadeBackgroundToBlack : void : void
+api : 8003ef98 : UnfadeBackgroundFromBlack : void : void
+
 api : 8003F398, 01A798 : GetCamLookAtObjVector	: Var[0] int x, Var[1] int y, Var[2] int z : void
 api : 8003F3F4, 01A7F4 : HasMerleeCasts			: Var[0] bool result : void
 api : 8003F580, 01A980 : OnDefeatEnemy			: void : void
@@ -850,6 +853,10 @@ asm : 8011BC1C, 0B231C : set_main_pan_u		: void : int pannerID, int amount
 asm : 8011BC34, 0B2334 : set_main_pan_v		: void : int pannerID, int amount
 asm : 8011BC4C, 0B234C : set_aux_pan_u		: void : int pannerID, int amount
 asm : 8011BC64, 0B2364 : set_aux_pan_v		: void : int pannerID, int amount
+
+asm : 8011be5c : set_background_color_blend : void : int R, int G, int B, int alpha "0-255 lerp amount"
+asm : 8011be80 : get_background_color_blend : void : int* out_R, int* out_G, int* out_B, int* out_alpha "0-255 lerp amount"
+
 asm : 8011D910, 0B4010 : queue_render_task			: render_task_entry* : render_task* task
 
 asm : 80120148, 0B6848 : play_model_animation	: ??? : ???
