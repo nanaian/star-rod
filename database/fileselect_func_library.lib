@@ -1,0 +1,7 @@
+
+% functions, scripts, etc. only loaded when the game is paused
+
+{version=1.0}
+{scope=mainmenu}
+
+asm : 80242BA0 : mainmenu_draw_rect : void : int ulx, int uly, int lrx, int lry, int tileDesc "typically 0", int uls "typically 0", int ult "typically 0", int dsdx "typically 400", int dtdy "typically 400"

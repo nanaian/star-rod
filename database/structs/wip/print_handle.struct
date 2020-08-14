@@ -1,0 +1,8 @@
+% print_handle
+type: ram
+size: 554
+fields:
+{
+	 10 : printbuf           : char*      % Created by retype action
+}
+

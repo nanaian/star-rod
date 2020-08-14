@@ -1,0 +1,10 @@
+% shop
+type: ram
+size: 35C
+fields:
+{
+	 14 : staticItemPositions : ptr
+	 18 : staticInventory    : ptr
+	 1C : staticPriceList    : ptr
+}
+

@@ -1,0 +1,16 @@
+
+@Hook 07C900
+{
+	% enforce a maximum fall speed, prevents integrator from 'overflowing'
+	LWC1	F0, 70 (A0)
+	LIF		F4, -35.0
+	C.LT.S	F0, F4
+	BC1F	.Continue
+	NOP
+	J		800E34D0
+	NOP
+	.Continue
+	LW		V0, 0 (A0)
+	J		800E3458
+	LUI		V1, 4
+}

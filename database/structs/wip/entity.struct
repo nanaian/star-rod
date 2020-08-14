@@ -1,0 +1,20 @@
+% entity
+type: ram
+size: F8
+fields:
+{
+	  0 : flags              : int
+	  B : alpha              : ubyte      % reported by rain
+	  C : aabb               : short[3`]
+	 16 : shadowIndex        : short
+	 28 : boundScript        : bytecode*
+	 38 : static_data        : static_entity_data*
+	 40 : trigger            : trigger*
+	 44 : vertexData         : int*
+	 48 : position           : float[3`]
+	 54 : scale?             : float[3`]
+	 60 : rotation           : float[3`]
+	 70 : inverseTransformMatrix : matrix4f*  % world-to-local
+	 B0 : radius?            : ubyte      % Created by retype action
+}
+

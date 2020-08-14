@@ -1,0 +1,27 @@
+
+% 802D20AC in UseEntryHeading
+@Hook F6A5C
+{
+	% cap tangent
+	PUSH	F28, F30
+	MTC1	R0, F28
+	C.LT.S	F2, F28
+	BC1T	.Negative
+	NOP
+	LIF		F30, 100.0
+	C.LT.S	F30, F2
+	BC1TL	4
+	MOV.S	F2, F30
+	B		.Done
+	NOP
+	.Negative
+	LIF		F30, -100.0
+	C.LT.S	F2, F30
+	BC1TL	4
+	MOV.S	F2, F30
+	.Done
+	MUL.S	F2, F2, F0
+	POP		F28, F30
+	J		802D20B4
+	NOP
+}

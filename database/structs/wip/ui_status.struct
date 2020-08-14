@@ -1,0 +1,49 @@
+% ui_status
+type: ram
+size: 70
+fields:
+{
+	  0 : hpIconIndex        : int
+	  4 : heartIconIndex     : int
+	  8 : fpIconIndex        : int
+	  C : flowerIconIndex    : int
+	 10 : coinIconIndex      : int
+	 14 : coinIconIndex2     : int        % purpose?
+	 18 : starpointsIconIndex : int
+	 1C : starpointsIconIndex2 : int        % purpose?
+	 20 : iconIndex8         : int
+	 24 : iconIndex9         : int
+	 28 : iconIndexA         : int
+	 2C : iconIndexB         : int
+	 30 : iconIndexC         : int
+	 34 : drawPosX           : short      % overall x-offset for whole UI
+	 36 : drawPosY           : short      % modulated as it appears, goes away
+	 38 : showTimer          : short
+	 3A : hidden             : ubyte
+	 3D : displayHP          : ubyte
+	 3E : displayFP          : ubyte
+	 40 : displayCoins       : short
+	 42 : displayStarpoints  : short
+	 44 : ignoreChanges      : ubyte      % set != 0 to prevent automatic opening from HP/FP changes
+	 47 : disabled           : ubyte      % set != 0 for menu to be disabled completely
+	 48 : displaySP          : short
+	 4A : hpBlinking         : ubyte      % bool
+	 4B : hpBlinkCounter     : ubyte
+	 4C : hpBlinkTimer       : ubyte      % until stop
+	 4D : fpBlinking         : ubyte      % bool
+	 4E : fpBlinkCounter     : ubyte
+	 4F : fpBlinkTimer       : ubyte      % until stop
+	 50 : spBlinking         : ubyte
+	 51 : spBlinkCounter     : ubyte
+	 52 : starpointsBlinking : ubyte      % bool
+	 53 : starpointsBlinkCounter : ubyte
+	 54 : coinsBlinking      : ubyte      % bool
+	 55 : coinsBlinkCounter  : ubyte
+	 56 : coinsBlinkTimer    : ubyte      % until stop
+	 5A : spBarsToBlink      : ubyte      % how many sp bars to blink
+	 5C : iconIndex10        : int
+	 60 : iconIndex11        : int
+	 64 : iconIndex12        : int
+	 68 : iconIndex13        : int
+}
+

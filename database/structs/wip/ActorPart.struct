@@ -1,0 +1,39 @@
+% ActorPart
+% exact size
+type: ram
+size: C4
+fields:
+{
+	  0 : flags              : int
+	  4 : targetFlags        : int        % initialized to 0
+	  8 : staticData         : StaticActorPart*
+	  C : nextPart           : ActorPart*
+	 10 : movement           : actor_part_movement*
+	 14 : partOffset         : short[3`]
+	 1A : visualOffset       : short[3`]
+	 20 : partOffsetFloat?   : float[3`]
+	 2C : absolutePosition   : float[3`]
+	 38 : rotation           : float[3`]
+	 44 : rotationPivotOffset : short[3`]
+	 4C : scale              : float[3`]
+	 58 : currentPos         : float[3`]
+	 64 : yaw                : float
+	 68 : unkOffset          : short[2`]
+	 6C : targetOffset       : short[2`]
+	 70 : unk                : short
+	 72 : size               : ubyte[2`]
+	 74 : verticalStretch    : ubyte
+	 78 : defenseTable       : uint*
+	 7C : eventFlags         : int
+	 80 : partFlags3         : int
+	 88 : currentAnimation   : int
+	 90 : animationRate      : float
+	 94 : idleAnimations     : uint*
+	 98 : opacity            : short
+	 9C : shadow             : shadow*
+	 A0 : shadowScale        : float
+	 A4 : partTypeData       : int[6`]
+	 BC : actorTypeData2b    : short[2`]
+	 C0 : decorationTable    : decoration_table* % initialized to 0
+}
+

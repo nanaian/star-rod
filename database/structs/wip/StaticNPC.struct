@@ -1,0 +1,22 @@
+% StaticNPC
+type: ram
+size: 1F0
+fields:
+{
+	  0 : ID                 : int
+	  4 : npcSettings        : StaticNpcSettings*
+	  8 : spawnPos           : int[3`]
+	 14 : flags              : int
+	 18 : initScript         : bytecode*
+	 24 : spawnYaw           : int
+	 28 : itemDrops          : short[25`]
+	 5A : heartDrops         : short[32`]
+	 9A : flowerDrops        : short[32`]
+	 DA : minCoinBonus       : short
+	 DC : maxCoinBonus       : short
+	 E0 : movementData       : int[48`]
+	1A0 : animations         : int[16`]
+	1E8 : extraAnimations    : ptr
+	1EC : tattle             : int
+}
+

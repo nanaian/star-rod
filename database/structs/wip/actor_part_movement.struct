@@ -1,0 +1,12 @@
+% actor_part_movement
+% exact size
+type: ram
+size: 8C
+fields:
+{
+	  C : goalPos            : float[3`]
+	 24 : jumpScale          : float
+	 28 : moveSpeed          : float
+	 4C : varTable           : int[16`]
+}
+

@@ -1,0 +1,8 @@
+% player_path_element
+type: ram
+size: 10
+fields:
+{
+	  4 : pos                : float[3`]
+}
+

@@ -1,0 +1,27 @@
+% StaticActorData
+type: ram
+size: 28
+fields:
+{
+	  0 : flags              : int
+	  5 : type               : ubyte
+	  6 : level              : ubyte
+	  7 : maxHP              : ubyte
+	  8 : partCount          : short
+	  C : partsData          : StaticActorPart**
+	 10 : script             : ptr
+	 14 : statusTable        : ptr
+	 18 : escapeChance       : ubyte
+	 19 : airLiftChance      : ubyte
+	 1A : spookChance        : ubyte
+	 1B : baseStatusChance?  : ubyte
+	 1C : upAndAwayChance    : ubyte
+	 1D : spinSmashReq       : ubyte
+	 1E : powerBounceChance  : ubyte
+	 1F : coinReward         : ubyte
+	 20 : size               : uchar[2`]
+	 22 : hpBarOffset        : uchar[2`]
+	 24 : statusIconOffset   : uchar[2`]
+	 26 : statusMessageOffset : uchar[2`]
+}
+

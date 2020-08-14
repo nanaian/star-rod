@@ -1,0 +1,23 @@
+StatusFlags	% namespace
+statusFlags	% library name
+false	% reversed
+
+% for use with GetStatusFlags (func_8026F44C)
+
+00001000 = Sleep
+00002000 = Static
+00004000 = Frozen
+00008000 = UnknownStatus3
+00010000 = Paralyze
+00020000 = Poison
+00040000 = Dizzy
+00080000 = Shrink
+00100000 = Stone
+00200000 = Stop
+01000000 = KO
+02000000 = Glowing
+04000000 = Transparent % also outta sight, parts with flags 20 or 100
+08000000 = AttackBoost
+10000000 = DefenseBoost
+20000000 = ChillOut
+40000000 = RightOn

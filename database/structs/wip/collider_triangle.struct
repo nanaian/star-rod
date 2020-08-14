@@ -1,0 +1,15 @@
+% collider_triangle
+type: ram
+size: 40
+fields:
+{
+	  0 : v1                 : float[3]*  % note: the order of v1,2,3 is reversed from the ijk in the hit file
+	  4 : v2                 : float[3]*
+	  8 : v3                 : float[3]*
+	  C : e13                : float[3`]  % = v3 - v1
+	 18 : e21                : float[3`]  % = v1 - v2
+	 24 : e32                : float[3`]  % = v2 - v3
+	 30 : normal             : float[3`]
+	 3C : oneSided           : short      % 1 = yes, 0 = no
+}
+

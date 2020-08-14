@@ -1,0 +1,18 @@
+% StaticNpcSettings
+type: ram
+size: 2C
+fields:
+{
+	  4 : height             : short
+	  6 : radius             : short
+	  8 : otherAI?           : ptr
+	  C : interactScript     : bytecode*
+	 10 : aiScript           : bytecode*
+	 14 : hitScript          : bytecode*
+	 18 : auxScript          : bytecode*
+	 1C : defeatScript       : bytecode*
+	 20 : flags              : int
+	 28 : level              : short
+	 2A : unkFlags           : short
+}
+

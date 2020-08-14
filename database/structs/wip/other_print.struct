@@ -1,0 +1,12 @@
+% other_print
+type: ram
+size: 54
+fields:
+{
+	 10 : stringScaleH       : float
+	 14 : stringScaleW       : float
+	 18 : characterScaleH    : float
+	 1C : characterScaleW    : float
+	 40 : currentPosX        : int
+}
+

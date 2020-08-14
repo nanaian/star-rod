@@ -1,0 +1,10 @@
+% collider_aabb
+type: ram
+size: 1C
+fields:
+{
+	  0 : min                : float[3`]
+	  C : max                : float[3`]
+	 18 : flagsForCollider   : int
+}
+

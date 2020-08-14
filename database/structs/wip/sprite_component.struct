@@ -1,0 +1,16 @@
+% sprite_component
+type: ram
+size: 50
+fields:
+{
+	  8 : readPos            : short**
+	  C : waitTime           : float
+	 10 : loopCounter        : int
+	 14 : currentRaster      : int
+	 18 : currentPalette     : int
+	 1C : posOffset          : float[3`]
+	 28 : compPos??          : float[3`]
+	 34 : rotation           : float[3`]
+	 40 : scale              : float[3`]
+}
+

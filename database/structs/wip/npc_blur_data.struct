@@ -1,0 +1,10 @@
+% npc_blur_data
+type: ram
+size: F4
+fields:
+{
+	  4 : xpos               : float[20`]
+	 54 : ypos               : float[20`]
+	 A4 : zpos               : float[20`]
+}
+

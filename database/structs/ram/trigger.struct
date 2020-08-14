@@ -1,0 +1,17 @@
+% trigger
+type: ram
+size: 38
+fields:
+{
+	  0 : genericFlagIndex   : short
+	  4 : crateFlagIndex     : short
+	  6 : panelFlagIndex     : short
+	  8 : colliderID         : int
+	  C : functionHandler    : code
+	 10 : scriptStart        : bytecode*
+	 14 : runningScript      : script_context*
+	 18 : priority           : int
+	 1C : scriptVars         : int[3`]
+	 34 : runningScriptID    : int
+}
+

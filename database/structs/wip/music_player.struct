@@ -1,0 +1,12 @@
+% music_player
+type: ram
+size: 30
+fields:
+{
+	  0 : unkFlags           : short
+	  4 : fadeOutTime        : int
+	  8 : fadeInTime         : int
+	 10 : songID             : int
+	 14 : variation          : int
+}
+

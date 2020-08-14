@@ -1,0 +1,12 @@
+% OSIoMesg
+type: ram
+size: 18
+fields:
+{
+	  0 : hdr                : OSIoMesgHdr
+	  8 : dramAddr           : struct*
+	  C : devAddr            : uint
+	 10 : size               : uint
+	 14 : piHandle           : OSPiHandle*
+}
+

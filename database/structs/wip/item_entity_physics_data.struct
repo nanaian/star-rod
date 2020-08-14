@@ -1,0 +1,13 @@
+% item_entity_physics_data
+type: ram
+size: 24
+fields:
+{
+	  0 : verticalVelocity   : float
+	  4 : gravity            : float      % 2 = normal, 1 = low gravity, higher values never 'settle'
+	  C : constVelocity?     : float
+	 10 : velx               : float
+	 14 : velz               : float
+	 18 : moveAngle          : float
+}
+

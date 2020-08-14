@@ -1,0 +1,23 @@
+% MenuIcon
+type: ram
+size: 54
+fields:
+{
+	  0 : flags              : uint
+	  4 : readPos            : uint*
+	  8 : startReadPos       : uint*
+	  C : ptrPropertyList    : uint*
+	 10 : imageAddr          : uint*
+	 14 : paletteAddr        : uint*
+	 18 : memOffset          : uint
+	 34 : widthScaleF        : float      % X.10 fmt (divide by 1024.0 to get float)
+	 38 : heightScaleF       : float      % X.10 fmt (divide by 1024.0 to get float)
+	 3C : renderPosX         : short
+	 3E : renderPosY         : short
+	 40 : screenPosOffset    : uchar[2`]
+	 42 : worldPosOffset?    : uchar[3`]
+	 47 : updateTimer?       : ubyte
+	 48 : sizeX              : ubyte      % screen size?
+	 49 : sizeY              : ubyte      % screen size?
+}
+

@@ -1,0 +1,9 @@
+% anim_model_node
+type: ram
+size: 2C
+fields:
+{
+	  0 : displayList        : uint*
+	  4 : rot?               : short[3`]  % range = -180,180
+}
+

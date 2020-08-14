@@ -1,0 +1,18 @@
+% collision_status
+% located at 8015A550
+type: ram
+size: 28
+fields:
+{
+	  0 : pushingAgainstWall : short      % FFFF = none for all below VVV
+	  2 : currentFloor       : short      % valid on touch
+	  4 : lastTouchedFloor   : short      % valid after jump
+	  6 : floorBelow         : short
+	  8 : currentCeiling     : short      % valid on touching with head
+	 12 : currentWall        : short
+	 14 : lastWallHammered   : short      % valid when smashing
+	 16 : touchingWallTrigger : short      % 0/1
+	 18 : bombetteExploded   : short      % 0 = yes, FFFF = no
+	 1C : bombetteExplositionPos : float[3`]
+}
+

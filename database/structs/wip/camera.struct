@@ -1,0 +1,55 @@
+% camera
+type: ram
+size: 558
+fields:
+{
+	  0 : flags              : short
+	  2 : moveFlags          : short
+	  4 : mode               : short
+	  A : viewportW          : short
+	  C : viewportH          : short
+	  E : viewportStartX     : short
+	 10 : viewportStartY     : short
+	 12 : nearClip           : short
+	 14 : farClip            : short
+	 18 : vfov               : float
+	 2A : zoomPercent        : short
+	 2C : backgroundColor    : short[3`]
+	 32 : targetScreenCoords : short[3`]
+	 38 : perspNorm          : short
+	 3C : lookAt_eye         : float[3`]
+	 48 : lookAt_obj         : float[3`]
+	 60 : targetPos          : float[3`]
+	 6C : currentYaw         : float
+	 74 : currentBoomYaw?    : float
+	 78 : currentBoomLength  : float
+	 7C : currentYOffset?    : float
+	 84 : trueRotation       : float[3`]
+	 90 : currentBlendedYawNegated : float
+	 94 : currentPitch       : float
+	 D4 : perspectiveMatrix  : matrix4f
+	114 : viewMtxPlayer      : matrix4f   % centers on player
+	154 : viewMtxLeading     : matrix4f   % leads player slightly
+	194 : viewMtxShaking     : matrix4f   % used while ShakeCam is active
+	204 : unkMatrix          : matrix4s*
+	444 : prevZone           : zone*
+	448 : currentZone        : zone*
+	44C : initialSettings    : cam_pos_settings % for start of blend between zones
+	468 : targetSettings     : cam_pos_settings % goal for blend between zones
+	484 : sinInterpAlpha     : float
+	488 : linearInterp       : float
+	48C : linearInterpScale  : float      % 3.0?
+	490 : moveSpeed          : float
+	4B0 : movePos            : float[3`]
+	4D8 : controllerType     : int
+	4DC : controllerBoomLen  : float
+	4E0 : controllerBoomPitch : float
+	4E4 : posA               : float[3`]
+	4F0 : posB               : float[3`]
+	4FC : controllerViewPitch : float
+	504 : boolTargetPlayer?  : short
+	508 : panPhase           : int
+	50C : leadAmount         : float
+	534 : aabbForZoneBelow   : collider_aabb*
+}
+

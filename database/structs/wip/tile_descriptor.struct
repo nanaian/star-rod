@@ -1,0 +1,19 @@
+% tile_descriptor
+type: ram
+size: 30
+fields:
+{
+	  0 : name               : char[32`]
+	 20 : auxW               : short
+	 22 : mainW              : short
+	 24 : auxH               : short
+	 26 : mainH              : short
+	 29 : extraTiles         : ubyte
+	 2A : colorCombine       : ubyte
+	 2B : fmt                : ubyte
+	 2C : bitDepth           : ubyte
+	 2D : wrapH              : ubyte
+	 2E : wrapV              : ubyte
+	 2F : filtering          : ubyte
+}
+

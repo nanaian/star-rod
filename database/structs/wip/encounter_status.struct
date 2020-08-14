@@ -1,0 +1,25 @@
+% encounter_status
+% from 800b0f10
+type: ram
+size: 94
+fields:
+{
+	  0 : flags              : int
+	  4 : eFirstStrike       : ubyte      % 0 = none, 1 = player, 2 = enemy
+	  5 : hitType            : ubyte      % 1 = none/enemy, 2 = jump
+	  6 : hitTier            : ubyte      % 0 = normal, 1 = super, 2 = ultra
+	  9 : battleOutcome      : ubyte      % 0 = won, 1 = lost
+	  B : merleeCoinBonus    : ubyte      % triple coins when != 0
+	  C : damageTaken        : ubyte      % valid after battle
+	  E : coinsEarned        : short      % valid after battle
+	 11 : allowFleeing       : ubyte
+	 13 : dropWhackaBump     : ubyte
+	 14 : songID             : int
+	 1C : numEncounters      : ubyte      % number of encounters for current map (in list)
+	 20 : mapID              : ubyte
+	 24 : npcGroupList       : int*
+	 28 : enounterList       : encounter*[24`]
+	 88 : currentEncounter   : encounter*
+	 8C : currentEnemy       : enemy*
+}
+

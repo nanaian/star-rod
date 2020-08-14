@@ -1,0 +1,9 @@
+% matrix4s
+type: ram
+size: 40
+fields:
+{
+	  0 : whole              : short[4`][4`]
+	 20 : frac               : short[4`][4`]
+}
+

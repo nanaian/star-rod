@@ -1,0 +1,12 @@
+% cam_pos_settings
+type: ram
+size: 1C
+fields:
+{
+	  0 : boomYaw            : float
+	  4 : boomLength         : float
+	  8 : boomPitch          : float
+	  C : viewPitch          : float
+	 10 : position           : float[3`]
+}
+

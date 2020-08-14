@@ -1,0 +1,12 @@
+% model_node
+type: ram
+size: 14
+fields:
+{
+	  0 : type               : int        % 2 = model
+	  4 : displayList        : ptr
+	  8 : numProperties      : int
+	  C : propertyList       : ptr
+	 10 : groupData          : model_group_data*
+}
+

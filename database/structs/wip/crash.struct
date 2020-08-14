@@ -1,0 +1,20 @@
+% crash
+type: ram
+size: 1F8
+fields:
+{
+	 14 : threadID           : int
+	 24 : AT                 : long       % Created by retype action
+	 2C : V0                 : long       % Created by retype action
+	 34 : V1                 : long       % Created by retype action
+	 3C : A0                 : long       % Created by retype action
+	 44 : A1                 : long       % Created by retype action
+	 4C : A2                 : long       % Created by retype action
+	 54 : A3                 : long
+	 6C : T2                 : int
+	118 : SR                 : int        % Created by retype action
+	11C : PC                 : int
+	120 : interrupt          : int
+	124 : VA                 : int        % Created by retype action
+}
+

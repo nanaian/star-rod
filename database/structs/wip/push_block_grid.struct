@@ -1,0 +1,12 @@
+% push_block_grid
+type: ram
+size: 1C
+fields:
+{
+	  0 : cells              : byte*
+	  4 : numCellsX          : ubyte
+	  5 : numCellsZ          : ubyte
+	  8 : centerPos          : int[3`]
+	 14 : dropCallback       : code
+}
+

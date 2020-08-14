@@ -1,0 +1,15 @@
+% move_table_entry
+type: ram
+size: 14
+fields:
+{
+	  0 : moveNameID         : int
+	  4 : flags              : int
+	  8 : worldDescID        : int
+	  C : menuDescID         : int
+	 10 : battleSubmenu      : ubyte
+	 11 : costFP             : ubyte
+	 12 : costBP             : ubyte
+	 13 : actionCommandID    : ubyte
+}
+

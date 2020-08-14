@@ -1,0 +1,13 @@
+% animated_model
+type: ram
+size: 70
+fields:
+{
+	  0 : animModelID        : int
+	  4 : pos                : float[3`]  % Created by retype action
+	 10 : rot                : float[3`]
+	 1C : scale              : float[3`]
+	 28 : mtx                : matrix4s*
+	 68 : currentAnimData    : uint
+}
+

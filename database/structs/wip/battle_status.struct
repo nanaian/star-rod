@@ -1,0 +1,88 @@
+% battle_status
+% from 800DC070
+type: ram
+size: 490
+fields:
+{
+	  0 : flags1             : int
+	  4 : flags2             : int
+	  8 : varTable           : int[16`]
+	 48 : currentSubmenu     : ubyte
+	 53 : stratsLastCursorPos : ubyte
+	 78 : totalStarPoints    : ubyte
+	 79 : pendingStarPoints  : ubyte      % how many to add
+	 7A : incrementStarPointDelay : ubyte      % related to star points, set to 0x28 when they are dropped
+	 7B : damageTaken        : ubyte
+	 7C : changePartnerAllowed : ubyte
+	 87 : blockResult        : ubyte      % 0 = fail, 1 = success, -1 = mashed
+	 88 : itemUsesLeft       : ubyte      % set to 2 for doublke dip, 3 for triple
+	 89 : hpDrainCount       : ubyte
+	 8B : hustleTurns        : ubyte      % numTurns from hustle drink, normally 0
+	 8E : initialEnemyCount  : ubyte      % used for SP award bonus
+	 96 : hammerCharge       : ubyte
+	 97 : jumpCharge         : ubyte
+	 99 : dangerFlags?       : ubyte      % 1 = danger, 2 = peril
+	 9A : outtaSightActive   : ubyte
+	 9B : turboChargeTurnsLeft : ubyte
+	 9C : turboChargeAmount  : ubyte      % unused?
+	 9D : waterBlockTurnsLeft : ubyte
+	 9E : waterBlockAmount   : ubyte      % unused?
+	 A4 : cloudNineTurnsLeft : ubyte
+	 A5 : cloudNineDodgeChance : ubyte      % = 50%
+	 A8 : cloudNineEffect    : int
+	 AE : hammerLossTurns    : ubyte
+	 AF : jumpLossTurns      : ubyte
+	 B0 : itemLossTurns      : ubyte
+	 B4 : preUpdateCallback  : code
+	 BC : controlScript      : script_context* % control handed over to this when changing partners, maybe general?
+	 C0 : controlScriptID    : int
+	 C4 : camMovementScript  : script_context*
+	 C8 : camMovementScriptID : int
+	 D8 : playerActor        : Actor*
+	 DC : partnerActor       : Actor*
+	 E0 : enemyActors        : Actor*[24`]
+	140 : enemyIDs           : short[24`]
+	171 : numEnemyActors     : ubyte
+	178 : moveCategory       : ubyte
+	17A : selectedItemID     : short
+	17C : selectedMoveID     : short
+	17E : currentAttackDamage : short
+	180 : lastAttackDamage   : short
+	184 : currentTargetListFlags : int        % set when creating a target list, also obtain from the flags field of moves
+	188 : currentAttackElement : int
+	18C : currentAttackEventSuppression : int
+	190 : currentAttackStatus : int
+	194 : statusChance       : ubyte
+	195 : statusDuration     : ubyte
+	197 : targetHomeIndex?   : ubyte      % some sort of home idnex used for target list construction
+	198 : powerBounceCounter : ubyte
+	199 : wasStatusInflicted : ubyte      % during last attack
+	1A0 : currentTargetID    : short      % selected?
+	1A2 : currentTargetPart  : ubyte      % selected?
+	1A4 : currentTargetID2   : short
+	1A6 : currentTargetPart2 : ubyte
+	1A7 : battlePhase        : ubyte
+	1A8 : attackerActorID    : short
+	1AE : submenuIcons       : short[24`] % icon IDs
+	1DE : submenuMoves       : uchar[24`] % move IDs
+	1F6 : submenuEnabled     : uchar[24`]
+	20E : submenuMoveCount   : ubyte
+	210 : currentButtonsDown : int
+	214 : currentButtonsPressed : int
+	218 : currentButtonsHeld : int
+	21C : stickX             : float
+	220 : stickY             : float
+	224 : inputBitmask       : int
+	228 : dpadX              : int        % 0-360
+	22C : dpadY              : int        % 0-60
+	230 : holdInputBuffer    : int[64`]
+	330 : pushInputBuffer    : int[64`]
+	430 : holdInputBufferPos??? : ubyte
+	431 : inputBufferPos     : ubyte
+	438 : foregroundModelList : int*
+	43C : turboChargeCounter? : ptr
+	440 : tattleFlags        : uchar[27`]
+	46C : battleState        : int        % 0 = load assets, 1 = create actors, 4 = start scripts, 7 & 8 = unk
+	47A : currentBattleSection : ubyte
+}
+

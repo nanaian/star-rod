@@ -1,0 +1,53 @@
+% player_data
+type: ram
+size: 340
+fields:
+{
+	  0 : bootsLevel         : ubyte
+	  1 : hammerLevel        : ubyte
+	  2 : curHP              : ubyte
+	  3 : curMaxHP           : ubyte
+	  4 : hardMaxHP          : ubyte
+	  5 : curFP              : ubyte
+	  6 : curMaxFP           : ubyte
+	  7 : hardMaxFP          : ubyte
+	  8 : maxBP              : ubyte
+	  9 : level              : ubyte
+	  A : hasActionCommands  : ubyte
+	  C : coins              : short
+	  E : fortressKeyCount   : ubyte
+	  F : starPieces         : ubyte
+	 10 : starPoints         : ubyte
+	 12 : currentPartner     : ubyte
+	 14 : partners           : partner_data[12`]
+	 74 : keyItems           : short[32`]
+	 B4 : badges             : short[128`]
+	1B4 : invItems           : short[10`]
+	1C8 : storedItems        : short[32`]
+	208 : equippedBadges     : short[64`]
+	289 : merleeSpellType    : ubyte
+	28A : merleeCastsLeft    : ubyte
+	28C : merleeTurnCount    : short
+	28E : maxStarPower       : ubyte
+	290 : specialBarsFilled  : short
+	294 : otherHitsTaken?    : short
+	298 : hitsTaken          : short
+	29A : hitsBlocked        : short
+	29C : playerFirstStrikes : short
+	29E : enemyFirstStrikes  : short
+	2A0 : powerBounces       : short
+	2A2 : battlesCount       : short
+	2B4 : totalCoinsEarned   : int
+	2B8 : idleFrameCounter   : short      % frames with no inputs, overflows ever ~36 minutes of idling
+	2BC : frameCounter       : int        % increases by 2 per frame
+	2C0 : quizzesAnswered    : short
+	2C2 : quizzesCorrect     : short
+	32C : starPiecesCollected : short
+	32E : jumpGamePlays      : short
+	330 : jumpGameTotal      : int        % all-time winnings, max = 99999
+	334 : jumpGameRecord     : short
+	336 : smashGamePlays     : short
+	338 : smashGameTotal     : int        % all-time winnings, max = 99999
+	33C : smashGameRecord    : short
+}
+

@@ -1,0 +1,47 @@
+% player_status
+type: ram
+size: 288
+fields:
+{
+	  0 : flags              : int
+	  4 : animFlags          : uint
+	  8 : framesOnGround     : short      % Number of frames since last jump landed
+	  C : peachDisguise      : ubyte
+	 12 : moveFrames         : short
+	 14 : enableCollisionOverlapsCheck : ubyte
+	 15 : statusMenuCounter?inputEnabledCounter? : ubyte      % whether the C-up menu can appear
+	 16 : lastGoodPosition   : short[3`]
+	 1C : extraVelocity?     : float[3`]
+	 28 : position           : float[3`]
+	 44 : decorationPos?     : float[2`]
+	 50 : jumpApexHeight     : float
+	 54 : currentSpeed       : int
+	 58 : walkSpeed          : float
+	 5C : runSpeed           : float
+	 68 : normalPitch        : float
+	 70 : gravityIntegrator  : float[4`]
+	 80 : targetYaw          : float
+	 84 : currentYaw         : float
+	 A0 : heading            : float
+	 A8 : spriteFacingAngle  : float      % angle of sprite, relative to camera, from 0 to 180
+	 B0 : colliderHeight     : short
+	 B2 : colliderDiameter   : short
+	 B4 : actionState        : ubyte
+	 B5 : prevActionState    : ubyte
+	 B6 : fallState?         : ubyte
+	 B8 : anim               : int
+	 BE : renderMode         : ubyte
+	 C0 : decorationList     : uint*
+	 CC : shadowID           : int
+	 DC : currentButtons     : int
+	 E0 : pressedButtons     : int
+	 E4 : heldButtons        : int
+	 E8 : stickAxis          : float[2`]
+	 F0 : currentButtonsBuffer : int[10`]
+	118 : pressedButtonsBuffer : int[10`]
+	140 : heldButtonsBuffer  : int[10`]
+	168 : stickXBuffer       : float[10`]
+	190 : stickYBuffer       : float[10`]
+	1B8 : inputBufPos        : int
+}
+

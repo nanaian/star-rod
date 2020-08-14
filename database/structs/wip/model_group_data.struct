@@ -1,0 +1,12 @@
+% model_group_data
+type: ram
+size: 14
+fields:
+{
+	  0 : transformMatrix    : ptr
+	  4 : lightingGroup      : ptr
+	  8 : numLights          : int
+	  C : numChildren        : int
+	 10 : childList          : model_node**
+}
+

@@ -1,0 +1,8 @@
+% static_shadow_data
+type: ram
+size: 24
+fields:
+{
+	  0 : flags              : short
+}
+

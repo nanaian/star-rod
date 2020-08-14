@@ -1,0 +1,12 @@
+% collision_data
+% found at 800B42E0
+type: ram
+size: 10
+fields:
+{
+	  0 : vertices           : float[3]*
+	  4 : collider_list      : collider*
+	  8 : aabbs              : collider_aabb**
+	  C : numColliders       : short
+}
+

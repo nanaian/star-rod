@@ -1,0 +1,25 @@
+% print_context
+type: ram
+size: 558
+fields:
+{
+	  0 : string             : char*
+	  4 : bufPos             : short
+	  8 : stringID           : int
+	 10 : buffer             : uchar[1024`]
+	454 : font               : ubyte
+	456 : startPosX          : short
+	458 : startPosY          : short
+	487 : unkArraySize       : ubyte
+	488 : unkArrayunkLength  : short[4`]
+	4FC : stateFlags         : int
+	509 : lerpElpasedTime    : ubyte
+	50A : startX?            : short
+	50C : startY?            : short
+	514 : sizeY              : short
+	516 : sizeX              : short
+	52B : currentImageIndex  : ubyte
+	536 : height?            : short
+	538 : width              : short
+}
+

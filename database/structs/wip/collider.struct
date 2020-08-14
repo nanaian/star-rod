@@ -1,0 +1,15 @@
+% collider
+type: ram
+size: 1C
+fields:
+{
+	  0 : flags              : int
+	  4 : nextSibling        : short
+	  6 : firstChild         : short
+	  8 : parentModelIndex   : short
+	  A : numTriangles       : short
+	  C : triangleTable      : collider_triangle*
+	 10 : aabb               : collider_aabb*
+	 18 : vertexTable        : float[3]*
+}
+

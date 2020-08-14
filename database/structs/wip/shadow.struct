@@ -1,0 +1,10 @@
+% shadow
+type: ram
+size: 78
+fields:
+{
+	  0 : flags              : int
+	 10 : position           : float[3`]
+	 1C : scale              : float[3`]
+}
+

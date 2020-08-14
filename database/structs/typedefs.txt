@@ -8,6 +8,9 @@ entryID		uint
 
 displayList	uint
 
+char		ubyte
+uchar		ubyte
+
 % scripts
 var		uint
 fvar		uint

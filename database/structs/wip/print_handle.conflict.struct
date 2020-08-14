@@ -1,0 +1,7 @@
+% print_handle.conflict
+type: ram
+size: 500
+fields:
+{
+}
+

@@ -1,0 +1,42 @@
+% script_context
+type: ram
+size: 168
+fields:
+{
+	  0 : state              : ubyte
+	  1 : currentArgc        : ubyte
+	  2 : currentOpcode      : ubyte
+	  3 : priority           : ubyte
+	  4 : groupFlags         : ubyte
+	  5 : blocked            : ubyte      % 1 = blocking
+	  6 : loopDepth          : ubyte      % how many nested loops we are in, >= 8 hangs forever
+	  7 : switchDepth        : ubyte      % how many nested switches we are in, max = 8
+	  8 : ptrNextLine        : bytecode*
+	  C : ptrReadPos         : bytecode*
+	 10 : labelIndices       : uchar[16`]
+	 20 : labelPositions     : ptr[16`]
+	 60 : deleted            : int        % set to zero in KillScript when malloc'd
+	 64 : blockingParent?    : script_context* % parent?
+	 68 : childScript        : script_context*
+	 6C : parentScript       : script_context* % brother?
+	 70 : functionTemp       : int[4`]
+	 80 : callFunction       : ptr
+	 84 : varTable           : uint[16`]
+	 C4 : varFlags           : int[3`]
+	 D0 : loopStartTable     : int[8`]
+	 F0 : loopCounterTable   : int[8`]
+	110 : switchBlockState   : uchar[8`]
+	118 : switchBlockValue   : int[8`]
+	138 : buffer             : ptr
+	13C : array              : ptr
+	140 : flagArray          : ptr
+	144 : uniqueID           : int
+	148 : ownerActorID       : enemy*     % controller*, battle ID, trigger*
+	14C : ownerID            : uint       % can be an npcID, a triggerID, a trigger ptr
+	150 : timeScale          : float
+	154 : frameCounter       : float
+	15C : ptrFirstLine       : bytecode*
+	160 : ptrSavedPosition   : bytecode*
+	164 : ptrCurrentLine     : bytecode*
+}
+

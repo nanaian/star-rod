@@ -1,0 +1,18 @@
+% item_table_entry
+type: ram
+size: 20
+fields:
+{
+	  0 : nameString         : int
+	  4 : iconID             : short
+	  6 : badgeSortPriority  : short
+	  8 : targetFlags        : int
+	  C : sellValue          : short
+	 10 : menuString         : int
+	 14 : itemString         : int
+	 18 : typeFlags          : short
+	 1A : moveID             : ubyte
+	 1B : potencyA           : ubyte
+	 1C : potencyB           : ubyte
+}
+

@@ -1,0 +1,12 @@
+% OSMesgQueue
+type: ram
+size: 18
+fields:
+{
+	  0 : mtqueue            : OSThread*
+	  4 : fullqueue          : OSThread*
+	  8 : validCount         : int
+	  C : first              : int
+	 10 : msgCount           : int
+}
+

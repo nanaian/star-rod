@@ -1,0 +1,16 @@
+% OSThread
+type: ram
+size: 178
+fields:
+{
+	  0 : next               : OSThread*
+	  4 : priority           : int
+	  8 : queue              : OSThread**
+	  C : tlnext             : OSThread*
+	 10 : state              : ushort
+	 12 : flags              : ushort
+	 14 : id                 : int
+	 18 : fp                 : int
+	 1C : context            : __OSThreadContext
+}
+

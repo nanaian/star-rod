@@ -1,0 +1,11 @@
+% OSContPad
+type: ram
+size: 6
+fields:
+{
+	  0 : button             : short
+	  2 : stickX             : ubyte
+	  3 : stickY             : ubyte
+	  4 : error              : ubyte
+}
+

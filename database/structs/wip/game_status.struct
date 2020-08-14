@@ -1,0 +1,57 @@
+% game_status
+% from 80074024
+type: ram
+size: 178
+fields:
+{
+	  0 : currentButtons     : uint
+	  4 : altCurrentButtons  : uint       % input used for batte when flag 80000 set
+	 10 : pressedButtons     : uint       % bits = 1 for frame of button press
+	 14 : altPressedButtons  : uint       % input used for batte when flag 80000 set
+	 20 : heldButtons        : uint       % bits = 1 every 4th frame during hold
+	 24 : altHeldButtons     : uint       % input used for batte when flag 80000 set
+	 30 : prevButtons        : uint       % from previous frame
+	 40 : stickX             : ubyte      % with deadzone
+	 41 : altStickX          : ubyte      % input used for batte when flag 80000 set
+	 44 : stickY             : ubyte      % with deadzone
+	 45 : altStickY          : ubyte      % input used for batte when flag 80000 set
+	 68 : demoButtonInput    : short
+	 6A : demoStickX         : ubyte
+	 6B : demoStickY         : ubyte
+	 6C : mainScriptID       : int
+	 70 : isBattle           : ubyte
+	 71 : demoState          : ubyte      % (0 = not demo, 1 = map demo, 2 = demo map changing)
+	 72 : nextDemoScene      : ubyte      % which part of the demo to play next
+	 73 : contBitPattern     : ubyte
+	 78 : disableScripts?    : ubyte
+	 7E : peachFlags         : ubyte      % (1 = isPeach, 2 = isTransformed, 4 = hasUmbrella)
+	 7F : peachDisguise      : ubyte      % (1 = koopatrol, 2 = hammer bros, 3 = clubba)
+	 86 : areaID             : short      % Created by retype action
+	 88 : prevArea           : short
+	 8A : changedArea        : ubyte      % (1 = yes)
+	 8C : mapID              : short
+	 8E : entryID            : short
+	 94 : exitAngle          : float
+	 98 : playerPos          : float[3`]
+	 A4 : playerYaw          : float
+	 AC : loadMenuState      : ubyte
+	 AD : menuCounter        : ubyte
+	128 : playerTraceNormal  : float[3`]
+	134 : frameCounter       : short
+	138 : nextRNG            : int
+	140 : shopItemData       : ptr
+	144 : mapShop            : shop*
+	148 : enableBackground   : short      % (bit 2 is also used for something)
+	14A : backgroundMinW     : short
+	14C : backgroundMinH     : short
+	14E : backgroundMaxW     : short
+	150 : backgroundMaxH     : short
+	152 : backgroundXOffset  : short      % (used for parallax scroll)
+	154 : backgroundRaster   : ptr
+	158 : backgroundPalette  : ptr
+	160 : savedPos           : short[3`]
+	166 : saveSlot           : char
+	167 : loadType           : ubyte      % (0 = from map, 1 = from main menu)
+	168 : saveCount          : int
+}
+

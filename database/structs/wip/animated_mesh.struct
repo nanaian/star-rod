@@ -1,0 +1,13 @@
+% animated_mesh
+type: ram
+size: 2E0
+fields:
+{
+	  0 : flags              : int
+	  4 : renderMode         : ubyte
+	  8 : animation1         : uint*
+	  C : animation2         : uint*
+	 98 : mtx                : matrix4s
+	2CC : time?              : int
+}
+

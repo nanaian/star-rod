@@ -1,0 +1,38 @@
+% enemy
+type: ram
+size: F0
+fields:
+{
+	  0 : flags              : int
+	  4 : encounterIndex     : ubyte
+	  5 : encountered        : ubyte
+	  6 : scriptGroup        : ubyte      % scripts launched for this npc controller will be assigned this group
+	  8 : npcID              : short
+	  A : spawnPos           : short[3`]
+	 18 : npcSettings        : static_npc_settings*
+	 1C : initBytecode       : bytecode*
+	 20 : interactBytecode   : bytecode*
+	 24 : aiBytecode         : bytecode*
+	 28 : hitBytecode        : bytecode*
+	 2C : auxBytecode        : bytecode*
+	 30 : defeatBytecode     : bytecode*
+	 34 : initScript         : script_context*
+	 38 : interactScript     : script_context*
+	 3C : aiScript           : script_context*
+	 40 : hitScript          : script_context*
+	 44 : auxScript          : script_context*
+	 48 : defeatScript       : script_context*
+	 4C : initScriptID       : int
+	 50 : interactScriptID   : int
+	 54 : aiScriptID         : int
+	 58 : hitScriptID        : int
+	 5C : auxScriptID        : int
+	 60 : defeatScriptID     : int
+	 6C : varTable           : int[16`]
+	 B8 : unkSettings24      : int
+	 CC : animList           : ptr
+	 D0 : territoryData      : ptr
+	 D4 : dropTables         : ptr
+	 D8 : tattleString       : uint
+}
+

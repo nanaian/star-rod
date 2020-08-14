@@ -134,6 +134,14 @@ asm : 8002FCE0, 00B0E0 : do_camera_type_unused		: ??? : ???
 asm : 80030000, 00B400 : do_camera_type_5			: ??? : ???
 asm : 80030458, 00B858 : test_ray_zone_aabb 		: collider* zone "0 if no hit" : int x, int y, int z
 asm : 80031494, 00C894 : do_camera_type_3			: ??? : ???
+
+asm : 800337D0, 00EBD0 : intro_logos_set_fade_alpha : void : byte alpha
+asm : 800337E0, 00EBE0 : intro_logos_set_fade_color : void : byte color "used for R G B"
+asm : 800337F8, 00EBF8 : intro_logos_fade_in : void : int amount "decrements alpha by amount"
+asm : 80033830, 00EC30 : intro_logos_fade_out : void : int amount "increments alpha by amount"
+asm : 80033874, 00EC74 : intro_logos_update_fade : void : void "uses values from set_fade_X"
+asm : 800340A4, 00F4A4 : intro_logos_update : void : void "state machine for showing each logo"
+
 asm : 800334F0, 00E8F0 : set_game_mode				: void : int mode	% there are many of these: battle, world, pause, file select, several others used for intro and main menu...
 asm : 80033528, 00E928 : get_game_mode				: int mode : void
 asm : 800338D0, 00ECD0 : start_battle_countdown		: void : void
@@ -144,8 +152,10 @@ asm : 80035D54, 011154 : step_world					: ??? : ???	% called from the main game 
 asm : 80038080, 013480 : init_demo_data 		: void : void
 asm : 800380F4, 0134F4 : next_demo_scene 		: void : void
 
+
 asm : 80038470, 013870 : stub_npc_callback : void : void
 asm : 80038478, 013878 : mtx_ident_mirror_y		: void : matrix4f* mtx
+asm : 800384BC, 0138BC : clear_npcs	: void : void
 
 asm : 8003852C, 01392C : init_npc_list			: void : void
 asm : 800389CC, 013DCC : free_npc				: void : npc*
@@ -800,6 +810,9 @@ ROM:    A5DD0 -	   E79B0
 asm : 8010F6D0, 0A5DD0 : update_entities			: void : void
 asm : 8010FA98, 0A6198 : update_shadows				: void : void
 
+asm : 8010FEB4, 0A65B4 : render_entities : void : void
+asm : 801100CC, 0A67CC : render_shadows : void : void
+
 asm : 8011022C, 0A692C : update_entity_transform_matrix		: void : entity*
 asm : 80110374, 0A6A74 : update_shadow_transform_matrix : void : shadow*
 asm : 801104A4, 0A6BA4 : update_entity_inverse_rotation_matrix : void : entity*
@@ -807,6 +820,11 @@ asm : 801105E8, 0A6CE8 : get_entity_by_index		: entity* : int index
 asm : 80110604, 0A6D04 : get_shadow_by_index		: shadow* : int index
 asm : 80110620, 0A6D20 : get_entity_list			: entity** : void
 asm : 8011064C, 0A6D4C : get_shadow_list			: shadow** : void
+asm : 801106A4, 0A6DA4 : get_entity_type	: int : int entityIndex
+asm : 801106D0, 0A6DD0 : delete_entity	: void : int entityIndex
+
+asm : 80110790, 0A6E90 : delete_entity_and_unload_data	: void : int entityIndex
+
 asm : 80110AAC, 0A71AC : test_player_entity_aabb	: bool intersects : entity* entity
 asm : 80110BB0, 0A72B0 : is_player_action_state		: bool : #actionStateID
 
@@ -866,6 +884,28 @@ asm : 8011D910, 0B4010 : queue_render_task			: render_task_entry* : render_task*
 
 asm : 80120148, 0B6848 : play_model_animation	: ??? : ???
 
+
+% <-- end of file
+
+% start of file -->
+asm : 80120BB0, 0B72B0 : clear_virtual_models : void : void
+asm : 80120C58, 0B7358 : init_virtual_models : void : void
+asm : 80120CE0, 0B73E0 : load_virtual_model : int virtualModelID : ptr virtualModelData
+
+asm : 801230B0, 0B97B0 : stub_dynamic_entity_delegate : void : dynamic_entity*
+asm : 801230B8, 0B97B8 : clear_dynamic_entity_list : void : void
+asm : 80123114, 0B9814 : init_dynamic_entity_list : void : void
+asm : 80123158, 0B9858 : bind_dynamic_entity_3 : int index : code* updateFunc, code* drawFunc
+asm : 8012323C, 0B993C : bind_dynamic_entity_7 : int index : code* updateFunc, code* drawFunc
+asm : 80123320, 0B9A20 : bind_dynamic_entity_B : int index : code* updateFunc, code* drawFunc
+asm : 80123404, 0B9B04 : update_dynamic_entities : void : void
+asm : 80123470, 0B9B70 : render_dynamic_entities : void : void
+
+asm : 8012363C, 0B9D3C : get_dynamic_entity : dynamic_entity* : void
+
+
+
+
 asm : 80122FEC, 0B96EC : enable_entity_fog : void : void
 asm : 80123000, 0B9700 : disable_entity_fog : void : void
 asm : 80123010, 0B9710 : set_entity_fog_dist : void : int min, int max
@@ -900,6 +940,7 @@ asm : 80125DF4, 0BC4F4 : get_char_width			: int width : ???
 asm : 80125F68, 0BC668 : get_string_properties	: void : stringID, int* outHeight, int* outWidth, int*, int*, int*, int*, int charset
 asm : 80126474, 0BCB74 : get_string_width		: int width : int stringID, int charset "0 = standard"
 asm : 801264EC, 0BCBEC : draw_string			: void : int stringID "or address", int posX, int posY, int palette, int opacity, int style "0 = default"
+asm : 801274C0, 0BDBC0 : draw_digit				: void : ptr image, int unk "0 or 1", int posX, int posY
 asm : 8012769C, 0BDD9C : draw_number			: void : int value, int posX, int posY, bool, int palette, int opacity, int style "0 = default"
 asm : 8012CC08, 0C3308 : _draw_message_box		: void : print_context*, short posX, short posY, short straightWidth, short curveWidth, short height, float scaleX, float scaleY, byte opacity
 asm : 80130B0C, 0C720C : draw_coin_sparkles : void : item_entity* item
@@ -914,7 +955,6 @@ asm : 80131EEC, 0C85EC : update_item_entities : void : void
 asm : 801321A4, 0C88A4 : appendGfx_item_entity : void : item_entity* item
 asm : 80132C80, 0C9380 : draw_item_entities				: void : void
 asm : 80132E54, 0C9554 : render_item_entities : void : void
-asm : 801230B0, 0B97B0 : stub_item_entity_nodraw : void : void
 asm : 80133930, 0CA030 : remove_item_entity_by_reference	: void : item_entity* item
 asm : 801339FC, 0CA0FC : remove_item_entity_by_index		: void : int itemEntityIndex
 
@@ -932,8 +972,6 @@ asm : 801414A4, 0D7BA4 : create_icon			: int iconIndex : int* iconScript
 asm : 80141610, 0D7D10 : update_menu_icons			: void : void
 asm : 80142BFC, 0D92FC : render_menu_icon			: void : menu_icon* icon
 asm : 801436B4, 0D9DB4 : render_menu_icons			: void : void
-
-
 
 asm : 80144298, 0DA998 : {warning:internal} draw_menu_icon					: void : int iconIndex, int mode
 asm : 801447A8, 0DAEA8 : draw_icon_0				: void : int iconIndex % call _draw_icon with mode 0
@@ -1190,7 +1228,7 @@ api : 802CA420, 0EEDD0 : GotoMapSpecial			: void : $ASCII mapName {print}, int e
 api : 802CA440, 0EEDF0 : GotoMapByID			: void : int areaID, int mapID, int	entryID
 api : 802CA460, 0EEE10 : GetEntryID				: void : {out} var outValue	{outType=entryID} % returns the entrance ID that the player used to enter the current map
 api : 802CA490, 0EEE40 : GetMapID				: void : int outValue	% used by the forever forest maps "mim_*" to load current ID to a game byte
-api : 802CA4C0, 0EEE70 : GetLoadType			: void : int outType "0 = loaded from another map | 1 = loaded from main menu" % used for spawning the player at save points
+api : 802CA4C0, 0EEE70 : GetLoadType			: void : {out} var outType {outType=int} "0 = loaded from another map | 1 = loaded from main menu" % used for spawning the player at save points
 api : 802CA4F4, 0EEEA4 : SetRenderMode			: void : modelID model, int mode
 api : 802CA558, 0EEF08 : PlaySoundAtModel		: void : modelID, #soundID, ??? "always zero?"
 api : 802CA614, 0EEFC4 : PlaySoundAtCollider	: void : colliderID, #soundID, ??? "always zero?"
@@ -1510,15 +1548,24 @@ asm : 802DEB0C, 101BFC : load_sprite				: ??? : ???
 
 asm : 802E11A0, 102A20 : save_game_at_player_position : void : void
 
+asm : 802E2380, 103C00 : entity_init_BlueSwitch : void : entity*
+asm : 802E2408, 103C88 : entity_init_HugeBlueSwitch : void : entity*
+
+asm : 802E3E00, 105680 : entity_init_Hammer1Block_normal : void : entity*
+asm : 802E3E30, 1056B0 : entity_init_HammerBlock_small : void : entity*
+asm : 802E36E4, 104F64 : entity_init_Hammer23Block_normal : void : entity*
+
+asm : 802E7D84, 109604 : entity_init_Chest : void : entity*
+
 asm : 802E8CCC, 10A54C : player_enter_blue_pipe		: void : entity* bluePipeEntity
 asm : 802E8E4C, 10A6CC : push_entity_matrix			: void : int entityIndex
 
-dat : 801512cc : current_model_list : model**
+dat : 801512CC : current_model_list : model**
 
-dat : 801512e8 : current_model_special_DLs : model**
+dat : 801512E8 : current_model_special_DLs : model**
 
 dat : 80151770 : world_model_list : model*[256`]	% (up to 80151B70)
-dat : 80151b70 : battle_model_list : model*[256`]	% (up to 80151F70)
+dat : 80151B70 : battle_model_list : model*[256`]	% (up to 80151F70)
 
 dat : 80151380 : world_entity_list : entity*[30`]	% (up to 801513F8)
 dat : 801513F8 : battle_entity_list : entity*[30`]	% (up to 80151470)
@@ -1533,6 +1580,11 @@ dat : 80152010 : battle_model_special_DLs : displayList*[32`]
 
 dat : 80151700 : main_game_state "0 = battle, 1 = pause, 2 = world" : short
 dat : 8015170C : current_update_function : code
+
+% the name 'dynamic_entity' is not final and subject to change without notice
+dat : 801543A0 : world_dynamic_entities : dynamic_entity*[16`] 
+dat : 801543E0 : battle_dynamic_entities : dynamic_entity*[16`]
+dat : 80154420 : dynamic_entity_list : dynamic_entity**
 
 dat : 802DA490 : world_scripts : script_context*[128`]	% (up to 802DA690)
 dat : 802DA690 : battle_scripts : script_context*[128`]	% (up to 802DA890)

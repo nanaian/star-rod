@@ -1,0 +1,14 @@
+% static_entity_data
+type: ram
+size: 24
+fields:
+{
+	  0 : flags              : short
+	  2 : argSize            : short
+	  C : unk_data_func      : code
+	 10 : unk_data_ptr1      : ptr
+	 14 : unk_data_ptr2      : ptr
+	 18 : dmaStart           : int
+	 1C : dmaEnd             : int
+}
+

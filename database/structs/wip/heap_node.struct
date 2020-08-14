@@ -1,0 +1,12 @@
+% heap_node
+type: ram
+size: 10
+fields:
+{
+	  0 : next               : ptr
+	  4 : length             : int
+	  8 : allocated          : short
+	  A : entryID            : short
+	  C : capacity           : int
+}
+

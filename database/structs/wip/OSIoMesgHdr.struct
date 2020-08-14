@@ -1,0 +1,11 @@
+% OSIoMesgHdr
+type: ram
+size: 8
+fields:
+{
+	  0 : type               : ushort
+	  2 : pri                : ubyte
+	  3 : status             : ubyte
+	  4 : retQueue           : OSMesgQueue*
+}
+

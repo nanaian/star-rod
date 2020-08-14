@@ -1,0 +1,11 @@
+% render_task
+type: ram
+size: 10
+fields:
+{
+	  0 : renderMode         : int
+	  4 : dist               : int        % value between 0 and -10k
+	  8 : model              : model*
+	  C : fpBuildDL          : code       % function for making display list for model
+}
+

@@ -1,0 +1,19 @@
+% decoration_table
+% exact size -- see 80265A90
+type: ram
+size: 8E8
+fields:
+{
+	7DC : scale?             : short[16`]
+	7FC : posX               : short[16`]
+	81C : posY               : short[16`]
+	83C : posZ               : short[16`]
+	85C : rotationPivotOffsetX : uchar[16`]
+	86C : rotationPivotOffsetY : uchar[16`]
+	87C : rotX               : uchar[16`]
+	88C : rotY               : uchar[16`]
+	89C : rotZ               : uchar[16`]
+	8AC : effectType?        : ubyte      % 0 =  blur, 14 = none?
+	8B8 : decorationType     : uchar[2`]
+}
+

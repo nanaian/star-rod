@@ -1,0 +1,9 @@
+% font_raster_set
+type: ram
+size: C
+fields:
+{
+	  0 : sizeX              : ubyte
+	  1 : sizeY              : ubyte
+}
+

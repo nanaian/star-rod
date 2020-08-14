@@ -1,0 +1,13 @@
+% zone
+type: ram
+size: 2C
+fields:
+{
+	  0 : type               : int
+	  4 : boomLength         : float
+	  8 : boomPitch          : float
+	  C : pos                : float[6`]
+	 24 : viewPitch          : float
+	 28 : flag               : int
+}
+

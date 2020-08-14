@@ -1,0 +1,8 @@
+% matrix4f
+type: ram
+size: 40
+fields:
+{
+	  0 : mtx                : float[4`][4`]
+}
+

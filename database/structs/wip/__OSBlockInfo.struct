@@ -1,0 +1,13 @@
+% __OSBlockInfo
+type: ram
+size: 24
+fields:
+{
+	  0 : errStatus          : uint
+	  4 : dramAddr           : struct*
+	  8 : C2Addr             : struct*
+	  C : sectorSize         : uint
+	 10 : C1ErrNum           : uint
+	 14 : C1ErrSector        : uint[4`]
+}
+

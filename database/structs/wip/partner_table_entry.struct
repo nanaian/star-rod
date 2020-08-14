@@ -1,0 +1,23 @@
+% partner_table_entry
+type: ram
+size: 40
+fields:
+{
+	  0 : dmaStart           : int
+	  4 : dmaEnd             : int
+	  8 : dmaDest            : int
+	  C : isFlying           : int
+	 10 : fpInit             : code
+	 14 : spScriptA          : bytecode*
+	 18 : spScriptB          : bytecode*
+	 1C : spScriptC          : bytecode*
+	 20 : spScriptD          : bytecode*
+	 24 : idleAnim           : int
+	 28 : fpFuncA            : code
+	 2C : fpFuncB            : code
+	 30 : fpFuncC            : code
+	 34 : fpFuncD            : code
+	 38 : fpFuncE            : code
+	 3C : spScriptX          : bytecode*
+}
+

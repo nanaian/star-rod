@@ -345,7 +345,7 @@ api : 8026EE88, 19D768 : AddActorDecoration : void : #actorID, int partIndex, in
 api : 8026EF4C, 19D82C : RemoveActorDecoration : void : #actorID, int partIndex, int decorationIndex
 api : 8026EFF0, 19D8D0 : ModifyActorDecoration : void : #actorID, int partIndex, int decorationIndex, int sizeX, int sizeY, int offsetX, int offsetY
 api : 8026F0EC, 19D9CC : UseIdleAnimation  : void : #actorID, bool enabled "1 = animate using idle anims, 0 = anims are controlled through scripts"
-api : 8026F230, 19DB10 : GetStatusFlags    : void : #actorID, {out} var statusFlags
+api : 8026F230, 19DB10 : GetStatusFlags    : void : #actorID, {out} var statusFlags {outType=#statusFlags}
 api : 8026F44C, 19DD2C : RemovePlayerBuffs : void : #playerBuff
 api : 8026F470, 19DD50 : SetPartAlpha    : void : #actorID, int partIndex, int alpha "from transparent = 00 to opaque = FF"
 % 8026F60C : stores a byte at 800DC0FD -- used when aborting battles after SetBattleFlagBits " 00060000 .True "

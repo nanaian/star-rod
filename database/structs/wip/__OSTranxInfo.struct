@@ -1,0 +1,15 @@
+% __OSTranxInfo
+type: ram
+size: 60
+fields:
+{
+	  0 : cmdType            : uint
+	  4 : transferMode       : ushort
+	  6 : blockNum           : ushort
+	  8 : sectorNum          : int
+	  C : devAddr            : uint
+	 10 : bmCtlShadow        : uint
+	 14 : seqCtlShadow       : uint
+	 18 : block              : __OSBlockInfo[2`]
+}
+

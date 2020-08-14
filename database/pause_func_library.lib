@@ -6,6 +6,8 @@
 
 asm : 802447F4, 137B34 : get_total_equipped_bp_cost : int : void
 
+asm : 80244858, 137B98 : pausemenu_draw_rect : void : int ulx, int uly, int lrx, int lry, int tileDescriptor "typically 0", int uls "typically 0", int ult "typically 0", int dsdx "typically 400", int dtdy "typically 400"
+
 asm : 80245980, 138CC0 : draw_menu_stats "dispatched via draw_box" : void : * % A1 int baseX, A2 int baseY, A3 int width, SP[10] int height, ...
 
 asm : 80247508, 13A848 : draw_menu_badges "dispatched via draw_box" : void : * % A1 int baseX, A2 int baseY, A3 int width, SP[10] int height, ...

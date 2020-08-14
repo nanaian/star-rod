@@ -1,0 +1,45 @@
+% __OSThreadContext
+type: ram
+size: 15C
+fields:
+{
+	  0 : at                 : uint
+	  4 : v0                 : uint
+	  8 : v1                 : uint
+	  C : a0                 : uint
+	 10 : a1                 : uint
+	 14 : a2                 : uint
+	 18 : a3                 : uint
+	 1C : t0                 : uint
+	 20 : t1                 : uint
+	 24 : t2                 : uint
+	 28 : t3                 : uint
+	 2C : t4                 : uint
+	 30 : t5                 : uint
+	 34 : t6                 : uint
+	 38 : t7                 : uint
+	 3C : s0                 : uint
+	 40 : s1                 : uint
+	 44 : s2                 : uint
+	 48 : s3                 : uint
+	 4C : s4                 : uint
+	 50 : s5                 : uint
+	 54 : s6                 : uint
+	 58 : s7                 : uint
+	 5C : t8                 : uint
+	 60 : t9                 : uint
+	 64 : gp                 : uint
+	 68 : sp                 : uint
+	 6C : s8                 : uint
+	 70 : ra                 : uint
+	 74 : lo                 : uint
+	 78 : hi                 : uint
+	 7C : sr                 : uint
+	 80 : pc                 : uint
+	 84 : cause              : uint
+	 88 : badvaddr           : uint
+	 8C : rcp                : uint
+	 90 : fpcsr              : uint
+	 94 : fp32               : float[32`]
+}
+

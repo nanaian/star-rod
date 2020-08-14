@@ -1,0 +1,16 @@
+% OSPiHandle
+type: ram
+size: 14
+fields:
+{
+	  0 : next               : OSPiHandle*
+	  4 : type               : ubyte
+	  5 : latency            : ubyte
+	  6 : pageSize           : ubyte
+	  7 : relDuration        : ubyte
+	  8 : pulse              : ubyte
+	  9 : domain             : ubyte
+	  C : baseAddress        : uint
+	 10 : speed              : uint
+}
+

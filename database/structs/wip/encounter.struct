@@ -1,0 +1,12 @@
+% encounter
+type: ram
+size: 4C
+fields:
+{
+	  0 : count              : int
+	  4 : enemy              : enemy*[16`]
+	 44 : battle             : short
+	 46 : stage              : short
+	 48 : encounterID        : short
+}
+

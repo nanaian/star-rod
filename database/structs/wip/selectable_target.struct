@@ -1,0 +1,13 @@
+% selectable_target
+type: ram
+size: 14
+fields:
+{
+	  0 : actorID            : short
+	  2 : partID             : short      % sometimes loaded as byte from 0x3
+	  4 : pos                : short[3`]
+	 11 : homeCol            : ubyte      % from xpos --> 0-3
+	 12 : homeRow            : ubyte      % from ypos --> 0-3
+	 13 : layer              : ubyte      % from zpos? --> 0-1
+}
+

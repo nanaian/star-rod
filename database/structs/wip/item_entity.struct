@@ -1,0 +1,21 @@
+% item_entity
+type: ram
+size: 5C
+fields:
+{
+	  0 : flags              : int
+	  4 : boundVar           : short      % see make_item_entity
+	  8 : position           : float[3`]
+	 14 : physicsData        : item_entity_physics_data*
+	 18 : itemID             : short      % into item table, also worldIconID
+	 1A : state              : ubyte
+	 1B : type               : ubyte
+	 1C : pickupDelay        : ubyte      % num frames before item can be picked up
+	 1E : wsFaceAngle        : short      % < 0 means none
+	 20 : shadowIndex        : short
+	 24 : readPos            : uint*
+	 28 : savedReadPos       : uint*
+	 2E : unkCounter         : ubyte
+	 30 : scale              : float
+}
+
